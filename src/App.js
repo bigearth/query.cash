@@ -24,6 +24,26 @@ import GetAccount from './components/GetAccount';
 import GetAddedNodeInfo from './components/GetAddedNodeInfo';
 import GetAddressesByAccount from './components/GetAddressesByAccount';
 import GetBalance from './components/GetBalance';
+import GetBestBlockHash from './components/GetBestBlockHash';
+import GetBlock from './components/GetBlock';
+import GetBlockchainInfo from './components/GetBlockchainInfo';
+import GetBlockCount from './components/GetBlockCount';
+import GetBlockHash from './components/GetBlockHash';
+import GetBlockTemplate from './components/GetBlockTemplate';
+import GetChainTips from './components/GetChainTips';
+import GetConnectionCount from './components/GetConnectionCount';
+import GetDifficulty from './components/GetDifficulty';
+import GetGenerate from './components/GetGenerate';
+import GetInfo from './components/GetInfo';
+import GetMempoolInfo from './components/GetMempoolInfo';
+import GetMiningInfo from './components/GetMiningInfo';
+import GetNetTotals from './components/GetNetTotals';
+import GetNetworkHashps from './components/GetNetworkHashps';
+import GetNetworkInfo from './components/GetNetworkInfo';
+import GetPeerInfo from './components/GetPeerInfo';
+import GetRawMempool from './components/GetRawMempool';
+import GetReceivedByAccount from './components/GetReceivedByAccount';
+import GetReceivedByAddress from './components/GetReceivedByAddress';
 import GetRawTransaction from './components/GetRawTransaction';
 import Homepage from './Homepage';
 import SetTxFee from './components/SetTxFee';
@@ -200,6 +220,166 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/getbestblockhash">
+                    GetBestBlockHash
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblock">
+                    GetBlock
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblockchaininfo">
+                    GetBlockchainInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblockcount">
+                    GetBlockCount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblockhash">
+                    GetBlockHash
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblocktemplate">
+                    GetBlockTemplate
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getchaintips">
+                    GetChainTips
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getconnectioncount">
+                    GetConnectionCount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getdifficulty">
+                    GetDifficulty
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getgenerate">
+                    GetGenerate
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getinfo">
+                    GetInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getmempoolinfo">
+                    GetMempoolInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getmininginfo">
+                    GetMiningInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getnettotals">
+                    GetNetTotals
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getnetworkhashps">
+                    GetNetworkHashps
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getnetworkinfo">
+                    GetNetworkInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getpeerinfo">
+                    GetPeerInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getrawmempool">
+                    GetRawMempool
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getreceivedbyaccount">
+                    GetReceivedByAccount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getreceivedbyaddress">
+                    GetReceivedByAddress
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/getrawtransaction">
                     GetRawTransaction
                   </NavLink>
@@ -305,7 +485,28 @@ class App extends Component {
             <Route path="/getaddednodeinfo" component={GetAddedNodeInfo}/>
             <Route path="/getaddressesbyaccount" component={GetAddressesByAccount}/>
             <Route path="/getbalance" component={GetBalance}/>
+            <Route path="/getbestblockhash" component={GetBestBlockHash}/>
+            <Route path="/getblock" component={GetBlock}/>
+            <Route path="/getblockchaininfo" component={GetBlockchainInfo}/>
+            <Route path="/getblockcount" component={GetBlockCount}/>
+            <Route path="/getblockhash" component={GetBlockHash}/>
+            <Route path="/getblocktemplate" component={GetBlockTemplate}/>
+            <Route path="/getchaintips" component={GetChainTips}/>
+            <Route path="/getconnectioncount" component={GetConnectionCount}/>
+            <Route path="/getdifficulty" component={GetDifficulty}/>
+            <Route path="/getgenerate" component={GetGenerate}/>
+            <Route path="/getinfo" component={GetInfo}/>
+            <Route path="/getmempoolinfo" component={GetMempoolInfo}/>
+            <Route path="/getmininginfo" component={GetMiningInfo}/>
+            <Route path="/getnettotals" component={GetNetTotals}/>
+            <Route path="/getnetworkhashps" component={GetNetworkHashps}/>
+            <Route path="/getnetworkinfo" component={GetNetworkInfo}/>
+            <Route path="/getpeerinfo" component={GetPeerInfo}/>
+            <Route path="/getrawmempool" component={GetRawMempool}/>
+            <Route path="/getreceivedbyaccount" component={GetReceivedByAccount}/>
+            <Route path="/getreceivedbyaddress" component={GetReceivedByAddress}/>
             <Route path="/getrawtransaction" component={GetRawTransaction}/>
+            <Route exact path="/" component={Homepage}/>
             <Route path="/settxfee" component={SetTxFee}/>
             <Route path="/signmessage" component={SignMessage}/>
             <Route path="/signrawtransaction" component={SignRawTransaction}/>
@@ -316,7 +517,6 @@ class App extends Component {
             <Route path="/walletlock" component={WalletLock}/>
             <Route path="/walletpassphrase" component={WalletPassPhrase}/>
             <Route path="/walletpassphrasechange" component={WalletPassPhraseChange}/>
-            <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
           </Switch>
         </div>
