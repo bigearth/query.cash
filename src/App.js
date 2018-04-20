@@ -59,6 +59,13 @@ import ListLockUnspent from './components/ListLockUnspent';
 import ListReceivedByAccount from './components/ListReceivedByAccount';
 import ListReceivedByAddress from './components/ListReceivedByAddress';
 import ListTransactions from './components/ListTransactions';
+import ListUnspent from './components/ListUnspent';
+import LockUnspent from './components/LockUnspent';
+import PrioritiseTransaction from './components/PrioritiseTransaction';
+import SendFrom from './components/SendFrom';
+import SendMany from './components/SendMany';
+import SendRawTransaction from './components/SendRawTransaction';
+import SendToAddress from './components/SendToAddress';
 import SetTxFee from './components/SetTxFee';
 import SignMessage from './components/SignMessage';
 import SignRawTransaction from './components/SignRawTransaction';
@@ -99,7 +106,6 @@ class App extends Component {
                 to="/">
                 BITBOX
               </NavLink>
-
               <ul className="pure-menu-list">
                 <li className="pure-menu-item">
                   <NavLink
@@ -505,6 +511,62 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/ListUnspent">
+                    ListUnspent
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/LockUnspent">
+                    LockUnspent
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/PrioritiseTransaction">
+                    PrioritiseTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/SendFrom">
+                    SendFrom
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/sendmany">
+                    SendMany
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/sendrawtransaction">
+                    SendRawTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/sendtoaddress">
+                    SendToAddress
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/settxfee">
                     SetTxFee
                   </NavLink>
@@ -636,6 +698,13 @@ class App extends Component {
             <Route path="/listreceivedbyaccount" component={ListReceivedByAccount}/>
             <Route path="/listreceivedbyaddress" component={ListReceivedByAddress}/>
             <Route path="/listtransactions" component={ListTransactions}/>
+            <Route path="/listunspent" component={ListUnspent}/>
+            <Route path="/lockunspent" component={LockUnspent}/>
+            <Route path="/prioritisetransaction" component={PrioritiseTransaction}/>
+            <Route path="/sendfrom" component={SendFrom}/>
+            <Route path="/sendmany" component={SendMany}/>
+            <Route path="/sendrawtransaction" component={SendRawTransaction}/>
+            <Route path="/sendtoaddress" component={SendToAddress}/>
             <Route path="/settxfee" component={SetTxFee}/>
             <Route path="/signmessage" component={SignMessage}/>
             <Route path="/signrawtransaction" component={SignRawTransaction}/>
