@@ -556,7 +556,6 @@ class App extends Component {
             <Route path="/gettxoutproof" component={GetTxOutProof}/>
             <Route path="/getunconfirmedbalance" component={GetUnconfirmedBalance}/>
             <Route path="/getwalletinfo" component={GetWalletInfo}/>
-            <Route exact path="/" component={Homepage}/>
             <Route path="/settxfee" component={SetTxFee}/>
             <Route path="/signmessage" component={SignMessage}/>
             <Route path="/signrawtransaction" component={SignRawTransaction}/>
@@ -567,6 +566,7 @@ class App extends Component {
             <Route path="/walletlock" component={WalletLock}/>
             <Route path="/walletpassphrase" component={WalletPassPhrase}/>
             <Route path="/walletpassphrasechange" component={WalletPassPhraseChange}/>
+            <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
           </Switch>
         </div>
