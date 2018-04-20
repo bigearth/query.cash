@@ -13,7 +13,6 @@ class Homepage extends Component {
         <ul>
           <li>
             <Link
-              activeClassName="pure-menu-selected"
               className="pure-menu-link"
               to="/decoderawtransaction">
               DecodeRawTransaction
@@ -21,7 +20,6 @@ class Homepage extends Component {
           </li>
           <li>
             <Link
-              activeClassName="pure-menu-selected"
               className="pure-menu-link"
               to="/getrawtransaction">
               GetRawTransaction
