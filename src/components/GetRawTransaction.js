@@ -17,12 +17,13 @@ class GetRawTransaction extends Component {
     super(props);
     this.state = {
       txid: '',
-      data: 'null' 
+      data: 'null'
     };
   }
 
   handleInputChange(e) {
     let value = e.target.value;
+      console.log('bar', value)
     this.setState({
       txid: value
     });
@@ -30,10 +31,11 @@ class GetRawTransaction extends Component {
 
   handleSubmit(e) {
     BITBOX.RawTransactions.getRawTransaction(this.state.txid).then((result) => {
+      console.log('bar', result)
       this.setState({
         data: result
       })
-    }, (err) => { console.log(err); });
+    }, (err) => { console.log('foo', err); });
     e.preventDefault();
   }
 
