@@ -42,9 +42,14 @@ import GetNetworkHashps from './components/GetNetworkHashps';
 import GetNetworkInfo from './components/GetNetworkInfo';
 import GetPeerInfo from './components/GetPeerInfo';
 import GetRawMempool from './components/GetRawMempool';
+import GetRawTransaction from './components/GetRawTransaction';
 import GetReceivedByAccount from './components/GetReceivedByAccount';
 import GetReceivedByAddress from './components/GetReceivedByAddress';
-import GetRawTransaction from './components/GetRawTransaction';
+import GetTransaction from './components/GetTransaction';
+import GetTxOut from './components/GetTxOut';
+import GetTxOutProof from './components/GetTxOutProof';
+import GetUnconfirmedBalance from './components/GetUnconfirmedBalance';
+import GetWalletInfo from './components/GetWalletInfo';
 import Homepage from './Homepage';
 
 import './App.css';
@@ -354,6 +359,14 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/getrawtransaction">
+                    GetRawTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/getreceivedbyaccount">
                     GetReceivedByAccount
                   </NavLink>
@@ -370,8 +383,40 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
-                    to="/getrawtransaction">
-                    GetRawTransaction
+                    to="/gettransaction">
+                    GetTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/gettxout">
+                    GetTxOut
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/gettxoutproof">
+                    GetTxOutProof
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getunconfirmedbalance">
+                    GetUnconfirmedBalance
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getwalletinfo">
+                    GetWalletInfo
                   </NavLink>
                 </li>
               </ul>
@@ -413,9 +458,14 @@ class App extends Component {
             <Route path="/getnetworkinfo" component={GetNetworkInfo}/>
             <Route path="/getpeerinfo" component={GetPeerInfo}/>
             <Route path="/getrawmempool" component={GetRawMempool}/>
+            <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route path="/getreceivedbyaccount" component={GetReceivedByAccount}/>
             <Route path="/getreceivedbyaddress" component={GetReceivedByAddress}/>
-            <Route path="/getrawtransaction" component={GetRawTransaction}/>
+            <Route path="/gettransaction" component={GetTransaction}/>
+            <Route path="/gettxout" component={GetTxOut}/>
+            <Route path="/gettxoutproof" component={GetTxOutProof}/>
+            <Route path="/getunconfirmedbalance" component={GetUnconfirmedBalance}/>
+            <Route path="/getwalletinfo" component={GetWalletInfo}/>
             <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
           </Switch>
