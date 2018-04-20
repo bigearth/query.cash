@@ -39,6 +39,11 @@ import GetMempoolInfo from './components/GetMempoolInfo';
 import GetMiningInfo from './components/GetMiningInfo';
 import GetNetTotals from './components/GetNetTotals';
 import GetNetworkHashps from './components/GetNetworkHashps';
+import GetNetworkInfo from './components/GetNetworkInfo';
+import GetPeerInfo from './components/GetPeerInfo';
+import GetRawMempool from './components/GetRawMempool';
+import GetReceivedByAccount from './components/GetReceivedByAccount';
+import GetReceivedByAddress from './components/GetReceivedByAddress';
 import GetRawTransaction from './components/GetRawTransaction';
 import Homepage from './Homepage';
 
@@ -325,6 +330,46 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/getnetworkinfo">
+                    GetNetworkInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getpeerinfo">
+                    GetPeerInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getrawmempool">
+                    GetRawMempool
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getreceivedbyaccount">
+                    GetReceivedByAccount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getreceivedbyaddress">
+                    GetReceivedByAddress
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/getrawtransaction">
                     GetRawTransaction
                   </NavLink>
@@ -365,6 +410,11 @@ class App extends Component {
             <Route path="/getmininginfo" component={GetMiningInfo}/>
             <Route path="/getnettotals" component={GetNetTotals}/>
             <Route path="/getnetworkhashps" component={GetNetworkHashps}/>
+            <Route path="/getnetworkinfo" component={GetNetworkInfo}/>
+            <Route path="/getpeerinfo" component={GetPeerInfo}/>
+            <Route path="/getrawmempool" component={GetRawMempool}/>
+            <Route path="/getreceivedbyaccount" component={GetReceivedByAccount}/>
+            <Route path="/getreceivedbyaddress" component={GetReceivedByAddress}/>
             <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
