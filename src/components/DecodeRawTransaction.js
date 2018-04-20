@@ -17,7 +17,7 @@ class DecodeRawTransaction extends Component {
     super(props);
     this.state = {
       hex: '',
-      data: ''
+      data: 'null' 
     };
   }
 

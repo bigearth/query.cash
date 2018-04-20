@@ -17,7 +17,7 @@ class GetRawTransaction extends Component {
     super(props);
     this.state = {
       txid: '',
-      data: ''
+      data: 'null' 
     };
   }
 
@@ -53,6 +53,7 @@ class GetRawTransaction extends Component {
           </fieldset>
 
         </form>
+        <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
       </div>
     );
