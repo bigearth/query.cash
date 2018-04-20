@@ -8,6 +8,7 @@ import {
   NavLink
 } from 'react-router-dom';
 
+import Homepage from './Homepage';
 import AbandonTransaction from './components/AbandonTransaction';
 import AddMultisigAddress from './components/AddMultisigAddress';
 import AddNode from './components/AddNode';
@@ -42,10 +43,29 @@ import GetNetworkHashps from './components/GetNetworkHashps';
 import GetNetworkInfo from './components/GetNetworkInfo';
 import GetPeerInfo from './components/GetPeerInfo';
 import GetRawMempool from './components/GetRawMempool';
+import GetRawTransaction from './components/GetRawTransaction';
 import GetReceivedByAccount from './components/GetReceivedByAccount';
 import GetReceivedByAddress from './components/GetReceivedByAddress';
-import GetRawTransaction from './components/GetRawTransaction';
-import Homepage from './Homepage';
+import GetTransaction from './components/GetTransaction';
+import GetTxOut from './components/GetTxOut';
+import GetTxOutProof from './components/GetTxOutProof';
+import GetUnconfirmedBalance from './components/GetUnconfirmedBalance';
+import GetWalletInfo from './components/GetWalletInfo';
+import Help from './components/Help';
+import KeypoolRefill from './components/KeypoolRefill';
+import ListAccounts from './components/ListAccounts';
+import ListAddressGroupings from './components/ListAddressGroupings';
+import ListLockUnspent from './components/ListLockUnspent';
+import ListReceivedByAccount from './components/ListReceivedByAccount';
+import ListReceivedByAddress from './components/ListReceivedByAddress';
+import ListTransactions from './components/ListTransactions';
+import ListUnspent from './components/ListUnspent';
+import LockUnspent from './components/LockUnspent';
+import PrioritiseTransaction from './components/PrioritiseTransaction';
+import SendFrom from './components/SendFrom';
+import SendMany from './components/SendMany';
+import SendRawTransaction from './components/SendRawTransaction';
+import SendToAddress from './components/SendToAddress';
 import SetTxFee from './components/SetTxFee';
 import SignMessage from './components/SignMessage';
 import SignRawTransaction from './components/SignRawTransaction';
@@ -364,6 +384,14 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/getrawtransaction">
+                    GetRawTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/getreceivedbyaccount">
                     GetReceivedByAccount
                   </NavLink>
@@ -380,8 +408,160 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
-                    to="/getrawtransaction">
-                    GetRawTransaction
+                    to="/gettransaction">
+                    GetTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/gettxout">
+                    GetTxOut
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/gettxoutproof">
+                    GetTxOutProof
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getunconfirmedbalance">
+                    GetUnconfirmedBalance
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getwalletinfo">
+                    GetWalletInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/help">
+                    Help
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/keypoolrefill">
+                    KeypoolRefill
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/listaccounts">
+                    ListAccounts
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/listaddressgroupings">
+                    ListAddressGroupings
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/listlockunspent">
+                    ListLockUnspent
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/listreceivedbyaccount">
+                    ListReceivedByAccount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/listreceivedbyaddress">
+                    ListReceivedByAddress
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/listtransactions">
+                    ListTransactions
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/ListUnspent">
+                    ListUnspent
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/LockUnspent">
+                    LockUnspent
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/PrioritiseTransaction">
+                    PrioritiseTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/SendFrom">
+                    SendFrom
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/sendmany">
+                    SendMany
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/sendrawtransaction">
+                    SendRawTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/sendtoaddress">
+                    SendToAddress
                   </NavLink>
                 </li>
                 <li className="pure-menu-item">
@@ -503,10 +683,29 @@ class App extends Component {
             <Route path="/getnetworkinfo" component={GetNetworkInfo}/>
             <Route path="/getpeerinfo" component={GetPeerInfo}/>
             <Route path="/getrawmempool" component={GetRawMempool}/>
+            <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route path="/getreceivedbyaccount" component={GetReceivedByAccount}/>
             <Route path="/getreceivedbyaddress" component={GetReceivedByAddress}/>
-            <Route path="/getrawtransaction" component={GetRawTransaction}/>
-            <Route exact path="/" component={Homepage}/>
+            <Route path="/gettransaction" component={GetTransaction}/>
+            <Route path="/gettxout" component={GetTxOut}/>
+            <Route path="/gettxoutproof" component={GetTxOutProof}/>
+            <Route path="/getunconfirmedbalance" component={GetUnconfirmedBalance}/>
+            <Route path="/getwalletinfo" component={GetWalletInfo}/>
+            <Route path="/help" component={Help}/>
+            <Route path="/keypoolrefill" component={KeypoolRefill}/>
+            <Route path="/listaccounts" component={ListAccounts}/>
+            <Route path="/listaddressgroupings" component={ListAddressGroupings}/>
+            <Route path="/listlockunspent" component={ListLockUnspent}/>
+            <Route path="/listreceivedbyaccount" component={ListReceivedByAccount}/>
+            <Route path="/listreceivedbyaddress" component={ListReceivedByAddress}/>
+            <Route path="/listtransactions" component={ListTransactions}/>
+            <Route path="/listunspent" component={ListUnspent}/>
+            <Route path="/lockunspent" component={LockUnspent}/>
+            <Route path="/prioritisetransaction" component={PrioritiseTransaction}/>
+            <Route path="/sendfrom" component={SendFrom}/>
+            <Route path="/sendmany" component={SendMany}/>
+            <Route path="/sendrawtransaction" component={SendRawTransaction}/>
+            <Route path="/sendtoaddress" component={SendToAddress}/>
             <Route path="/settxfee" component={SetTxFee}/>
             <Route path="/signmessage" component={SignMessage}/>
             <Route path="/signrawtransaction" component={SignRawTransaction}/>
@@ -517,6 +716,7 @@ class App extends Component {
             <Route path="/walletlock" component={WalletLock}/>
             <Route path="/walletpassphrase" component={WalletPassPhrase}/>
             <Route path="/walletpassphrasechange" component={WalletPassPhraseChange}/>
+            <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
           </Switch>
         </div>
