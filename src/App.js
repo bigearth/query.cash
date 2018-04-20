@@ -51,6 +51,16 @@ import GetTxOutProof from './components/GetTxOutProof';
 import GetUnconfirmedBalance from './components/GetUnconfirmedBalance';
 import GetWalletInfo from './components/GetWalletInfo';
 import Homepage from './Homepage';
+import SetTxFee from './components/SetTxFee';
+import SignMessage from './components/SignMessage';
+import SignRawTransaction from './components/SignRawTransaction';
+import SubmitBlock from './components/SubmitBlock';
+import ValidateAddress from './components/ValidateAddress';
+import VerifyMessage from './components/VerifyMessage';
+import VerifyTxOutProof from './components/VerifyTxOutProof';
+import WalletLock from './components/WalletLock';
+import WalletPassPhrase from './components/WalletPassPhrase';
+import WalletPassPhraseChange from './components/WalletPassPhraseChange';
 
 import './App.css';
 let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
@@ -419,6 +429,86 @@ class App extends Component {
                     GetWalletInfo
                   </NavLink>
                 </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/settxfee">
+                    SetTxFee
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/signmessage">
+                    SignMessage
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/signrawtransaction">
+                    SignRawTransaction
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/submitblock">
+                    SubmitBlock
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/validateaddress">
+                    ValidateAddress
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/verifymessage">
+                    VerifyMessage
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/verifytxoutproof">
+                    VerifyTxOutProof
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/walletlock">
+                    WalletLock
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/walletpassphrase">
+                    WalletPassPhrase
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/walletpassphrasechange">
+                    WalletPassPhraseChange
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
@@ -467,6 +557,16 @@ class App extends Component {
             <Route path="/getunconfirmedbalance" component={GetUnconfirmedBalance}/>
             <Route path="/getwalletinfo" component={GetWalletInfo}/>
             <Route exact path="/" component={Homepage}/>
+            <Route path="/settxfee" component={SetTxFee}/>
+            <Route path="/signmessage" component={SignMessage}/>
+            <Route path="/signrawtransaction" component={SignRawTransaction}/>
+            <Route path="/submitblock" component={SubmitBlock}/>
+            <Route path="/validateaddress" component={ValidateAddress}/>
+            <Route path="/verifymessage" component={VerifyMessage}/>
+            <Route path="/verifytxoutproof" component={VerifyTxOutProof}/>
+            <Route path="/walletlock" component={WalletLock}/>
+            <Route path="/walletpassphrase" component={WalletPassPhrase}/>
+            <Route path="/walletpassphrasechange" component={WalletPassPhraseChange}/>
             <Redirect from='*' to='/' />
           </Switch>
         </div>
