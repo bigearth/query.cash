@@ -8,7 +8,7 @@ class Homepage extends Component {
         <ul>
           <li>DecodeRawTransaction</li>
           <li>GetRawTransaction</li>
-        <ul>
+        </ul>
         <h2>Not yet working</h2>
         <p>Everything else 😬 Please fork <a href='https://github.com/bigearth/query.cash'>the repo</a> and help us build it</p>
       </div>
