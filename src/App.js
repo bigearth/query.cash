@@ -20,6 +20,10 @@ import EncryptWallet from './components/EncryptWallet';
 import EstimateFee from './components/EstimateFee';
 import EstimatePriority from './components/EstimatePriority';
 import GetAccountAddress from './components/GetAccountAddress';
+import GetAccount from './components/GetAccount';
+import GetAddedNodeInfo from './components/GetAddedNodeInfo';
+import GetAddressesByAccount from './components/GetAddressesByAccount';
+import GetBalance from './components/GetBalance';
 import GetRawTransaction from './components/GetRawTransaction';
 import Homepage from './Homepage';
 
@@ -146,16 +150,48 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
-                    to="/getrawtransaction">
-                    GetRawTransaction
+                    to="/getaccountaddress">
+                    GetAccountAddress
                   </NavLink>
                 </li>
                 <li className="pure-menu-item">
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
-                    to="/getaccountaddress">
-                    GetAccountAddress
+                    to="/getaccount">
+                    GetAccount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getaddednodeinfo">
+                    GetAddedNodeInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getaddressesbyaccount">
+                    GetAddressesByAccount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getbalance">
+                    GetBalance
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getrawtransaction">
+                    GetRawTransaction
                   </NavLink>
                 </li>
               </ul>
@@ -175,6 +211,10 @@ class App extends Component {
             <Route path="/estimatefee" component={EstimateFee}/>
             <Route path="/estimatepriority" component={EstimatePriority}/>
             <Route path="/getaccountaddress" component={GetAccountAddress}/>
+            <Route path="/getaccount" component={GetAccount}/>
+            <Route path="/getaddednodeinfo" component={GetAddedNodeInfo}/>
+            <Route path="/getaddressesbyaccount" component={GetAddressesByAccount}/>
+            <Route path="/getbalance" component={GetBalance}/>
             <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
