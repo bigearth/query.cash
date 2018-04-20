@@ -106,7 +106,6 @@ class App extends Component {
                 to="/">
                 BITBOX
               </NavLink>
-
               <ul className="pure-menu-list">
                 <li className="pure-menu-item">
                   <NavLink
