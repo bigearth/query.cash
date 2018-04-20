@@ -25,6 +25,13 @@ class Homepage extends Component {
               GetRawTransaction
             </Link>
           </li>
+          <li>
+            <Link
+              className="pure-menu-link"
+              to="/sendrawtransaction">
+              SendRawTransaction
+            </Link>
+          </li>
         </ul>
         <h2>Not yet working</h2>
         <p>Everything else 😬 Please fork <a className='blue' href='https://github.com/bigearth/query.cash'>the repo</a> and help us build it</p>
