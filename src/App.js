@@ -32,6 +32,13 @@ import GetBlockHash from './components/GetBlockHash';
 import GetBlockTemplate from './components/GetBlockTemplate';
 import GetChainTips from './components/GetChainTips';
 import GetConnectionCount from './components/GetConnectionCount';
+import GetDifficulty from './components/GetDifficulty';
+import GetGenerate from './components/GetGenerate';
+import GetInfo from './components/GetInfo';
+import GetMempoolInfo from './components/GetMempoolInfo';
+import GetMiningInfo from './components/GetMiningInfo';
+import GetNetTotals from './components/GetNetTotals';
+import GetNetworkHashps from './components/GetNetworkHashps';
 import GetRawTransaction from './components/GetRawTransaction';
 import Homepage from './Homepage';
 
@@ -262,6 +269,62 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/getdifficulty">
+                    GetDifficulty
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getgenerate">
+                    GetGenerate
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getinfo">
+                    GetInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getmempoolinfo">
+                    GetMempoolInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getmininginfo">
+                    GetMiningInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getnettotals">
+                    GetNetTotals
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getnetworkhashps">
+                    GetNetworkHashps
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/getrawtransaction">
                     GetRawTransaction
                   </NavLink>
@@ -295,6 +358,13 @@ class App extends Component {
             <Route path="/getblocktemplate" component={GetBlockTemplate}/>
             <Route path="/getchaintips" component={GetChainTips}/>
             <Route path="/getconnectioncount" component={GetConnectionCount}/>
+            <Route path="/getdifficulty" component={GetDifficulty}/>
+            <Route path="/getgenerate" component={GetGenerate}/>
+            <Route path="/getinfo" component={GetInfo}/>
+            <Route path="/getmempoolinfo" component={GetMempoolInfo}/>
+            <Route path="/getmininginfo" component={GetMiningInfo}/>
+            <Route path="/getnettotals" component={GetNetTotals}/>
+            <Route path="/getnetworkhashps" component={GetNetworkHashps}/>
             <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
