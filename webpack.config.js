@@ -36,5 +36,12 @@ module.exports = {
   },
   node: {
    fs: "empty"
-  }
+   },
+   plugins: [
+    new HtmlWebpackPlugin({
+      title: 'query.cash',
+      template: 'public/index.html',
+      filename: 'index.html'
+    })
+  ]
 };
