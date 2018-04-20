@@ -24,6 +24,14 @@ import GetAccount from './components/GetAccount';
 import GetAddedNodeInfo from './components/GetAddedNodeInfo';
 import GetAddressesByAccount from './components/GetAddressesByAccount';
 import GetBalance from './components/GetBalance';
+import GetBestBlockHash from './components/GetBestBlockHash';
+import GetBlock from './components/GetBlock';
+import GetBlockchainInfo from './components/GetBlockchainInfo';
+import GetBlockCount from './components/GetBlockCount';
+import GetBlockHash from './components/GetBlockHash';
+import GetBlockTemplate from './components/GetBlockTemplate';
+import GetChainTips from './components/GetChainTips';
+import GetConnectionCount from './components/GetConnectionCount';
 import GetRawTransaction from './components/GetRawTransaction';
 import Homepage from './Homepage';
 
@@ -190,6 +198,70 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
+                    to="/getbestblockhash">
+                    GetBestBlockHash
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblock">
+                    GetBlock
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblockchaininfo">
+                    GetBlockchainInfo
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblockcount">
+                    GetBlockCount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblockhash">
+                    GetBlockHash
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getblocktemplate">
+                    GetBlockTemplate
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getchaintips">
+                    GetChainTips
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
+                    to="/getconnectioncount">
+                    GetConnectionCount
+                  </NavLink>
+                </li>
+                <li className="pure-menu-item">
+                  <NavLink
+                    activeClassName="pure-menu-selected"
+                    className="pure-menu-link"
                     to="/getrawtransaction">
                     GetRawTransaction
                   </NavLink>
@@ -215,6 +287,14 @@ class App extends Component {
             <Route path="/getaddednodeinfo" component={GetAddedNodeInfo}/>
             <Route path="/getaddressesbyaccount" component={GetAddressesByAccount}/>
             <Route path="/getbalance" component={GetBalance}/>
+            <Route path="/getbestblockhash" component={GetBestBlockHash}/>
+            <Route path="/getblock" component={GetBlock}/>
+            <Route path="/getblockchaininfo" component={GetBlockchainInfo}/>
+            <Route path="/getblockcount" component={GetBlockCount}/>
+            <Route path="/getblockhash" component={GetBlockHash}/>
+            <Route path="/getblocktemplate" component={GetBlockTemplate}/>
+            <Route path="/getchaintips" component={GetChainTips}/>
+            <Route path="/getconnectioncount" component={GetConnectionCount}/>
             <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route exact path="/" component={Homepage}/>
             <Redirect from='*' to='/' />
