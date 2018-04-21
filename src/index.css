@@ -259,7 +259,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   width: inherit;
 }
 
-.GetRawTransaction input, .DecodeRawTransaction input {
+.GetRawTransaction input, .DecodeRawTransaction input, .SendRawTransaction input {
   width: 75%;
 }
 
