@@ -43,6 +43,17 @@ class GetBlockCount extends Component {
         <p>Coming Soon</p>
         <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+        <h2>RPC Help</h2>
+        <SyntaxHighlighter language='bash' style={ocean}>{`
+  Returns the number of blocks in the longest blockchain.
+
+  Result:
+  n    (numeric) The current block count
+
+  Examples:
+  > bitcoin-cli getblockcount
+  > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
+        `}</SyntaxHighlighter>
       </div>
     );
   }

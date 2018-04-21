@@ -25,7 +25,6 @@ import GetBlockTemplate from './components/GetBlockTemplate';
 import GetChainTips from './components/GetChainTips';
 import GetConnectionCount from './components/GetConnectionCount';
 import GetDifficulty from './components/GetDifficulty';
-import GetGenerate from './components/GetGenerate';
 import GetInfo from './components/GetInfo';
 import GetMempoolInfo from './components/GetMempoolInfo';
 import GetMiningInfo from './components/GetMiningInfo';
@@ -37,7 +36,6 @@ import GetRawMempool from './components/GetRawMempool';
 import GetRawTransaction from './components/GetRawTransaction';
 import GetTxOut from './components/GetTxOut';
 import GetTxOutProof from './components/GetTxOutProof';
-import Help from './components/Help';
 import PrioritiseTransaction from './components/PrioritiseTransaction';
 import SendRawTransaction from './components/SendRawTransaction';
 import SignRawTransaction from './components/SignRawTransaction';
@@ -207,14 +205,6 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
-                    to="/getgenerate">
-                    GetGenerate
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
                     to="/getinfo">
                     GetInfo
                   </NavLink>
@@ -303,14 +293,6 @@ class App extends Component {
                   <NavLink
                     activeClassName="pure-menu-selected"
                     className="pure-menu-link"
-                    to="/help">
-                    Help
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
                     to="/PrioritiseTransaction">
                     PrioritiseTransaction
                   </NavLink>
@@ -376,7 +358,6 @@ class App extends Component {
             <Route path="/getchaintips" component={GetChainTips}/>
             <Route path="/getconnectioncount" component={GetConnectionCount}/>
             <Route path="/getdifficulty" component={GetDifficulty}/>
-            <Route path="/getgenerate" component={GetGenerate}/>
             <Route path="/getinfo" component={GetInfo}/>
             <Route path="/getmempoolinfo" component={GetMempoolInfo}/>
             <Route path="/getmininginfo" component={GetMiningInfo}/>
@@ -388,7 +369,6 @@ class App extends Component {
             <Route path="/getrawtransaction" component={GetRawTransaction}/>
             <Route path="/gettxout" component={GetTxOut}/>
             <Route path="/gettxoutproof" component={GetTxOutProof}/>
-            <Route path="/help" component={Help}/>
             <Route path="/prioritisetransaction" component={PrioritiseTransaction}/>
             <Route path="/sendrawtransaction" component={SendRawTransaction}/>
             <Route path="/signrawtransaction" component={SignRawTransaction}/>
