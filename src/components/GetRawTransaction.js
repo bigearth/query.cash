@@ -30,7 +30,7 @@ class GetRawTransaction extends Component {
   }
 
   handleSubmit(e) {
-    BITBOX.RawTransactions.getRawTransaction(this.state.hex).then((result) => {
+    BITBOX.RawTransactions.getRawTransaction(this.state.txid).then((result) => {
       console.log('bar', result)
       this.setState({
         data: result
@@ -46,8 +46,8 @@ class GetRawTransaction extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <label>RAW HEX</label>
-              <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
+              <label>TXID</label>
+              <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="TXID"/>
             </div>
             <div>
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
