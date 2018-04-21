@@ -8,7 +8,6 @@ import {
 class Homepage extends Component {
   render() {
     return (
-      <div className='Homepage'>
         <h2>Working</h2>
         <ul>
           <li>

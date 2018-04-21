@@ -43,6 +43,25 @@ class EstimatePriority extends Component {
         <p>Coming Soon</p>
         <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+        <h2>RPC Help</h2>
+        <SyntaxHighlighter language='bash' style={ocean}>{`
+  estimatepriority nblocks
+
+  DEPRECATED. Estimates the approximate priority a zero-fee transaction needs to begin
+  confirmation within nblocks blocks.
+
+  Arguments:
+  1. nblocks     (numeric, required)
+
+  Result:
+  n              (numeric) estimated priority
+
+  A negative value is returned if not enough transactions and blocks
+  have been observed to make an estimate.
+
+  Example:
+  > bitcoin-cli estimatepriority 6
+        `}</SyntaxHighlighter>
       </div>
     );
   }
