@@ -19,7 +19,6 @@ class SendRawTransaction extends Component {
       hex: '',
       data: 'null'
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(e) {
@@ -32,7 +31,7 @@ class SendRawTransaction extends Component {
   handleSubmit(e) {
     BITBOX.RawTransactions.sendRawTransaction(this.state.hex).then((result) => {
       this.setState({
-        data: result
+        data: JSON.stringify(result)
       })
     }, (err) => { console.log(err); });
     e.preventDefault();
