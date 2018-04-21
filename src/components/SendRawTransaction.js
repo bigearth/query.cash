@@ -16,33 +16,45 @@ class SendRawTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hex: '',
       data: 'null'
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hex: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.SendRawTransaction(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.RawTransactions.sendRawTransaction(this.state.hex).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
+
 
   render() {
     return (
       <div className="SendRawTransaction">
         <h1 className="SendRawTransaction-title">SendRawTransaction</h1>
-        <p>Coming Soon</p>
-        <h2>Command Result</h2>
-        <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Raw Hex</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+            <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+        </form>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   Submits raw transaction (serialized, hex-encoded) to local node and network.
