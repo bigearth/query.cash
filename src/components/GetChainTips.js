@@ -20,19 +20,12 @@ class GetChainTips extends Component {
     };
   }
 
-  handleInputChange(e) {
-    let value = e.target.value;
-    this.setState({
-      txid: value
-    });
-  }
-
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetChainTips(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.Blockchain.getChainTips(this.state.txid).then((result) => {
+      this.setState({
+        data: JSON.stringify(result)
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -40,7 +33,9 @@ class GetChainTips extends Component {
     return (
       <div className="GetChainTips">
         <h1 className="GetChainTips-title">GetChainTips</h1>
-        <p>Coming Soon</p>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <button type="submit" className="pure-button pure-button-primary">Submit</button>
+        </form>
         <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
         <h2>RPC Help</h2>

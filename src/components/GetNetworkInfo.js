@@ -20,19 +20,12 @@ class GetNetworkInfo extends Component {
     };
   }
 
-  handleInputChange(e) {
-    let value = e.target.value;
-    this.setState({
-      txid: value
-    });
-  }
-
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetNetworkInfo(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.Network.getNetworkInfo(this.state.txid).then((result) => {
+      this.setState({
+        data: JSON.stringify(result)
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -40,7 +33,9 @@ class GetNetworkInfo extends Component {
     return (
       <div className="GetNetworkInfo">
         <h1 className="GetNetworkInfo-title">GetNetworkInfo</h1>
-        <p>Coming Soon</p>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <button type="submit" className="pure-button pure-button-primary">Submit</button>
+        </form>
         <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
         <h2>RPC Help</h2>
