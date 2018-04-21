@@ -20,19 +20,12 @@ class GetMiningInfo extends Component {
     };
   }
 
-  handleInputChange(e) {
-    let value = e.target.value;
-    this.setState({
-      txid: value
-    });
-  }
-
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetMiningInfo(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.Mining.getMiningInfo(this.state.txid).then((result) => {
+      this.setState({
+        data: JSON.stringify(result)
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -40,13 +33,15 @@ class GetMiningInfo extends Component {
     return (
       <div className="GetMiningInfo">
         <h1 className="GetMiningInfo-title">GetMiningInfo</h1>
-        <p>Coming Soon</p>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <button type="submit" className="pure-button pure-button-primary">Submit</button>
+        </form>
         <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   Returns a json object containing mining-related information.
-  
+
   Result:
   {
     "blocks": nnn,             (numeric) The current block

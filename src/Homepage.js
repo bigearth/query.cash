@@ -21,6 +21,20 @@ class Homepage extends Component {
           <li>
             <Link
               className="pure-menu-link"
+              to="/getdifficulty">
+              GetDifficulty
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="pure-menu-link"
+              to="/getinfo">
+              GetInfo
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="pure-menu-link"
               to="/getrawtransaction">
               GetRawTransaction
             </Link>

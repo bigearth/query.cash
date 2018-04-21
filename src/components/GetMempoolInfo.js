@@ -20,19 +20,12 @@ class GetMempoolInfo extends Component {
     };
   }
 
-  handleInputChange(e) {
-    let value = e.target.value;
-    this.setState({
-      txid: value
-    });
-  }
-
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetMempoolInfo(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.Blockchain.getMempoolInfo(this.state.txid).then((result) => {
+      this.setState({
+        data: JSON.stringify(result)
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -40,7 +33,9 @@ class GetMempoolInfo extends Component {
     return (
       <div className="GetMempoolInfo">
         <h1 className="GetMempoolInfo-title">GetMempoolInfo</h1>
-        <p>Coming Soon</p>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <button type="submit" className="pure-button pure-button-primary">Submit</button>
+        </form>
         <h2>Command Result</h2>
         <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
         <h2>RPC Help</h2>
