@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
+import JSONPretty from 'react-json-pretty';
 
 let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
 let BITBOX = new BITBOXCli({
@@ -56,7 +57,7 @@ class GetRawTransaction extends Component {
 
         </form>
         <h2>Command Result</h2>
-        <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   NOTE: By default this function only works for mempool transactions. If the -txindex option is enabled, it also works for blockchain transactions.

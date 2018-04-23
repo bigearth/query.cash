@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
+import JSONPretty from 'react-json-pretty';
 
 let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
 let BITBOX = new BITBOXCli({
@@ -42,7 +43,7 @@ class GetBlockTemplate extends Component {
         <h1 className="GetBlockTemplate-title">GetBlockTemplate</h1>
         <p>Coming Soon</p>
         <h2>Command Result</h2>
-        <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.
