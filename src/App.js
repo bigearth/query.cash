@@ -83,7 +83,7 @@ class App extends Component {
           <div className="content">
             <Router>
               <div>
-                <a href="#menu" id="menuLink" onClick={this.handleClick} className={`menu-link`}>
+                <a href="#menu" id="menuLink" onClick={this.handleClick.bind(this)} className={`menu-link`}>
                   <span></span>
                 </a>
 
