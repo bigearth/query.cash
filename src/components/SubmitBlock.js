@@ -29,11 +29,11 @@ class SubmitBlock extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.SubmitBlock(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.Mining.SubmitBlock(this.state.hexdata).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -41,7 +41,19 @@ class SubmitBlock extends Component {
     return (
       <div className="SubmitBlock">
         <h1 className="SubmitBlock-title">SubmitBlock</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Raw Hex</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="hexdata"/>
+                    <label>Parameters</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="parameters"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
