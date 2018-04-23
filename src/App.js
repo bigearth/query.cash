@@ -73,328 +73,340 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <a href="#menu" id="menuLink" onClick={this.handleClick} className={`menu-link ${this.state.activeMenu}`}>
-            <span></span>
-          </a>
-
-          <div id="menu">
-            <div className="pure-menu">
-              <NavLink
-                activeClassName="pure-menu-selected"
-                className="pure-menu-heading"
-                to="/">
-                BITBOX
-              </NavLink>
-              <ul className="pure-menu-list">
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/addnode">
-                    AddNode
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/createrawtransaction">
-                    CreateRawTransaction
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/decoderawtransaction">
-                    DecodeRawTransaction
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/decodescript">
-                    DecodeScript
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/estimatefee">
-                    EstimateFee
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/estimatepriority">
-                    EstimatePriority
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getaddednodeinfo">
-                    GetAddedNodeInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getbestblockhash">
-                    GetBestBlockHash
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getblock">
-                    GetBlock
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getblockchaininfo">
-                    GetBlockchainInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getblockcount">
-                    GetBlockCount
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getblockhash">
-                    GetBlockHash
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getblocktemplate">
-                    GetBlockTemplate
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getchaintips">
-                    GetChainTips
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getconnectioncount">
-                    GetConnectionCount
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getdifficulty">
-                    GetDifficulty
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getinfo">
-                    GetInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getmempoolinfo">
-                    GetMempoolInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getmininginfo">
-                    GetMiningInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getnettotals">
-                    GetNetTotals
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getnetworkhashps">
-                    GetNetworkHashps
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getnetworkinfo">
-                    GetNetworkInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getpeerinfo">
-                    GetPeerInfo
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getrawmempool">
-                    GetRawMempool
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/getrawtransaction">
-                    GetRawTransaction
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/gettxout">
-                    GetTxOut
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/gettxoutproof">
-                    GetTxOutProof
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/PrioritiseTransaction">
-                    PrioritiseTransaction
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/sendrawtransaction">
-                    SendRawTransaction
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/signrawtransaction">
-                    SignRawTransaction
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/submitblock">
-                    SubmitBlock
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/validateaddress">
-                    ValidateAddress
-                  </NavLink>
-                </li>
-                <li className="pure-menu-item">
-                  <NavLink
-                    activeClassName="pure-menu-selected"
-                    className="pure-menu-link"
-                    to="/verifytxoutproof">
-                    VerifyTxOutProof
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+      <div id="layout" className={`${this.state.activeMenu}`}>
+        <div id="main">
+          <div className="header">
+            <h1>query.cash</h1>
+            <h2>A web based interface to the Bitcoin Cash JSON-RPC</h2>
+            <p>Welcome to query.cash! Explore the Bitcoin Cash API by selecting a command from the list on the left.</p>
           </div>
+          <div className="content">
+            <Router>
+              <div>
+                <a href="#menu" id="menuLink" onClick={this.handleClick} className={`menu-link`}>
+                  <span></span>
+                </a>
 
-          <Switch>
-            <Route path="/addnode" component={AddNode}/>
-            <Route path="/createrawtransaction" component={CreateRawTransaction}/>
-            <Route path="/decoderawtransaction" component={DecodeRawTransaction}/>
-            <Route path="/decodescript" component={DecodeScript}/>
-            <Route path="/estimatefee" component={EstimateFee}/>
-            <Route path="/estimatepriority" component={EstimatePriority}/>
-            <Route path="/getaddednodeinfo" component={GetAddedNodeInfo}/>
-            <Route path="/getbestblockhash" component={GetBestBlockHash}/>
-            <Route path="/getblock" component={GetBlock}/>
-            <Route path="/getblockchaininfo" component={GetBlockchainInfo}/>
-            <Route path="/getblockcount" component={GetBlockCount}/>
-            <Route path="/getblockhash" component={GetBlockHash}/>
-            <Route path="/getblocktemplate" component={GetBlockTemplate}/>
-            <Route path="/getchaintips" component={GetChainTips}/>
-            <Route path="/getconnectioncount" component={GetConnectionCount}/>
-            <Route path="/getdifficulty" component={GetDifficulty}/>
-            <Route path="/getinfo" component={GetInfo}/>
-            <Route path="/getmempoolinfo" component={GetMempoolInfo}/>
-            <Route path="/getmininginfo" component={GetMiningInfo}/>
-            <Route path="/getnettotals" component={GetNetTotals}/>
-            <Route path="/getnetworkhashps" component={GetNetworkHashps}/>
-            <Route path="/getnetworkinfo" component={GetNetworkInfo}/>
-            <Route path="/getpeerinfo" component={GetPeerInfo}/>
-            <Route path="/getrawmempool" component={GetRawMempool}/>
-            <Route path="/getrawtransaction" component={GetRawTransaction}/>
-            <Route path="/gettxout" component={GetTxOut}/>
-            <Route path="/gettxoutproof" component={GetTxOutProof}/>
-            <Route path="/prioritisetransaction" component={PrioritiseTransaction}/>
-            <Route path="/sendrawtransaction" component={SendRawTransaction}/>
-            <Route path="/signrawtransaction" component={SignRawTransaction}/>
-            <Route path="/submitblock" component={SubmitBlock}/>
-            <Route path="/validateaddress" component={ValidateAddress}/>
-            <Route path="/verifytxoutproof" component={VerifyTxOutProof}/>
-            <Route exact path="/" component={Homepage}/>
-            <Redirect from='*' to='/' />
-          </Switch>
+                <div id="menu">
+                  <div className="pure-menu">
+                    <NavLink
+                      activeClassName="pure-menu-selected"
+                      className="pure-menu-heading"
+                      to="/">
+                      BITBOX
+                    </NavLink>
+                    <ul className="pure-menu-list">
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/addnode">
+                          AddNode
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/createrawtransaction">
+                          CreateRawTransaction
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/decoderawtransaction">
+                          DecodeRawTransaction
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/decodescript">
+                          DecodeScript
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/estimatefee">
+                          EstimateFee
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/estimatepriority">
+                          EstimatePriority
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getaddednodeinfo">
+                          GetAddedNodeInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getbestblockhash">
+                          GetBestBlockHash
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getblock">
+                          GetBlock
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getblockchaininfo">
+                          GetBlockchainInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getblockcount">
+                          GetBlockCount
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getblockhash">
+                          GetBlockHash
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getblocktemplate">
+                          GetBlockTemplate
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getchaintips">
+                          GetChainTips
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getconnectioncount">
+                          GetConnectionCount
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getdifficulty">
+                          GetDifficulty
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getinfo">
+                          GetInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getmempoolinfo">
+                          GetMempoolInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getmininginfo">
+                          GetMiningInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getnettotals">
+                          GetNetTotals
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getnetworkhashps">
+                          GetNetworkHashps
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getnetworkinfo">
+                          GetNetworkInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getpeerinfo">
+                          GetPeerInfo
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getrawmempool">
+                          GetRawMempool
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/getrawtransaction">
+                          GetRawTransaction
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/gettxout">
+                          GetTxOut
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/gettxoutproof">
+                          GetTxOutProof
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/PrioritiseTransaction">
+                          PrioritiseTransaction
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/sendrawtransaction">
+                          SendRawTransaction
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/signrawtransaction">
+                          SignRawTransaction
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/submitblock">
+                          SubmitBlock
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/validateaddress">
+                          ValidateAddress
+                        </NavLink>
+                      </li>
+                      <li className="pure-menu-item">
+                        <NavLink
+                          activeClassName="pure-menu-selected"
+                          className="pure-menu-link"
+                          to="/verifytxoutproof">
+                          VerifyTxOutProof
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <Switch>
+                  <Route path="/addnode" component={AddNode}/>
+                  <Route path="/createrawtransaction" component={CreateRawTransaction}/>
+                  <Route path="/decoderawtransaction" component={DecodeRawTransaction}/>
+                  <Route path="/decodescript" component={DecodeScript}/>
+                  <Route path="/estimatefee" component={EstimateFee}/>
+                  <Route path="/estimatepriority" component={EstimatePriority}/>
+                  <Route path="/getaddednodeinfo" component={GetAddedNodeInfo}/>
+                  <Route path="/getbestblockhash" component={GetBestBlockHash}/>
+                  <Route path="/getblock" component={GetBlock}/>
+                  <Route path="/getblockchaininfo" component={GetBlockchainInfo}/>
+                  <Route path="/getblockcount" component={GetBlockCount}/>
+                  <Route path="/getblockhash" component={GetBlockHash}/>
+                  <Route path="/getblocktemplate" component={GetBlockTemplate}/>
+                  <Route path="/getchaintips" component={GetChainTips}/>
+                  <Route path="/getconnectioncount" component={GetConnectionCount}/>
+                  <Route path="/getdifficulty" component={GetDifficulty}/>
+                  <Route path="/getinfo" component={GetInfo}/>
+                  <Route path="/getmempoolinfo" component={GetMempoolInfo}/>
+                  <Route path="/getmininginfo" component={GetMiningInfo}/>
+                  <Route path="/getnettotals" component={GetNetTotals}/>
+                  <Route path="/getnetworkhashps" component={GetNetworkHashps}/>
+                  <Route path="/getnetworkinfo" component={GetNetworkInfo}/>
+                  <Route path="/getpeerinfo" component={GetPeerInfo}/>
+                  <Route path="/getrawmempool" component={GetRawMempool}/>
+                  <Route path="/getrawtransaction" component={GetRawTransaction}/>
+                  <Route path="/gettxout" component={GetTxOut}/>
+                  <Route path="/gettxoutproof" component={GetTxOutProof}/>
+                  <Route path="/prioritisetransaction" component={PrioritiseTransaction}/>
+                  <Route path="/sendrawtransaction" component={SendRawTransaction}/>
+                  <Route path="/signrawtransaction" component={SignRawTransaction}/>
+                  <Route path="/submitblock" component={SubmitBlock}/>
+                  <Route path="/validateaddress" component={ValidateAddress}/>
+                  <Route path="/verifytxoutproof" component={VerifyTxOutProof}/>
+                  <Route exact path="/" component={Homepage}/>
+                  <Redirect from='*' to='/' />
+                </Switch>
+              </div>
+            </Router>
+          </div>
         </div>
-      </Router>
+      </div>
+
     );
   }
 }
