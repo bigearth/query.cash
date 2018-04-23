@@ -53,20 +53,29 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeMenu: ''
     }
   }
- 
+
 
 
   handleClick = () => {
-    this.setState({activeMenu: 'active'})
+    if(this.state.activeMenu === 'active') {
+      this.setState({
+        activeMenu: ''
+      });
+    } else {
+      this.setState({
+        activeMenu: 'active'
+      });
+    }
   }
 
   render() {
     return (
       <Router>
         <div>
-          <a href="#menu" id="menuLink" onClick={this.handleClick} className={`menu-link test ${this.state.activeMenu}`}>
+          <a href="#menu" id="menuLink" onClick={this.handleClick} className={`menu-link ${this.state.activeMenu}`}>
             <span></span>
           </a>
 
