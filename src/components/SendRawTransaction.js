@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
+import JSONPretty from 'react-json-pretty';
 
 let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
 let BITBOX = new BITBOXCli({
@@ -52,7 +53,7 @@ class SendRawTransaction extends Component {
                     <button type="submit" className="pure-button pure-button-primary">Submit</button>
                 </div>
             </fieldset>
-            <SyntaxHighlighter language='javascript' style={ocean}>{this.state.data}</SyntaxHighlighter>
+            <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         </form>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
