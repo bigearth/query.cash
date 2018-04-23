@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class GetDifficulty extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +12,7 @@ class GetDifficulty extends Component {
   }
 
   handleSubmit(e) {
-    BITBOX.Blockchain.getDifficulty().then((result) => {
+    this.BITBOX.Blockchain.getDifficulty().then((result) => {
       this.setState({
         data: JSON.stringify(result)
       })

@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class DecodeRawTransaction extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +20,7 @@ class DecodeRawTransaction extends Component {
   }
 
   handleSubmit(e) {
-    BITBOX.RawTransactions.decodeRawTransaction(this.state.hex).then((result) => {
+    this.props.bitbox.RawTransactions.decodeRawTransaction(this.state.hex).then((result) => {
       this.setState({
         data: result
       })
