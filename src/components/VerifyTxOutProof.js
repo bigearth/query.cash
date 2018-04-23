@@ -14,12 +14,12 @@ class VerifyTxOutProof extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      proof: value
     });
   }
 
   handleSubmit(e) {
-    BITBOX.Blockchain.verifyTxOutProof(this.state.proof).then((result) => {
+    this.props.bitbox.Blockchain.verifyTxOutProof(this.state.proof).then((result) => {
       this.setState({
         data: result
       })

@@ -14,12 +14,12 @@ class SubmitBlock extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hexdata: value
     });
   }
 
   handleSubmit(e) {
-    BITBOX.Mining.SubmitBlock(this.state.hexdata).then((result) => {
+    this.props.bitbox.Mining.submitBlock(this.state.hexdata).then((result) => {
       this.setState({
         data: result
       })

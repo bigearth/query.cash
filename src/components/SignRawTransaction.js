@@ -14,12 +14,12 @@ class SignRawTransaction extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hex: value
     });
   }
 
   handleSubmit(e) {
-    BITBOX.RawTransactions.SignRawTransaction(this.state.hex).then((result) => {
+    this.props.bitbox.RawTransactions.signRawTransaction(this.state.hex).then((result) => {
       this.setState({
         data: result
       })

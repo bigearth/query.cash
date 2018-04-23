@@ -14,12 +14,12 @@ class ValidateAddress extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      address: value
     });
   }
 
   handleSubmit(e) {
-    BITBOX.Util.ValidateAddress(this.state.address).then((result) => {
+    this.props.bitbox.Util.validateAddress(this.state.address).then((result) => {
       this.setState({
         data: result
       })
