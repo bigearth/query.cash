@@ -55,12 +55,18 @@ class App extends Component {
     this.state = {
     }
   }
+ 
+
+
+  handleClick = () => {
+    this.setState({activeMenu: 'active'})
+  }
 
   render() {
     return (
       <Router>
         <div>
-          <a href="#menu" id="menuLink" className="menu-link">
+          <a href="#menu" id="menuLink" onClick={this.handleClick} className={`menu-link test ${this.state.activeMenu}`}>
             <span></span>
           </a>
 
