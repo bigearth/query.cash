@@ -19,11 +19,11 @@ class VerifyTxOutProof extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.VerifyTxOutProof(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.Blockchain.verifyTxOutProof(this.state.proof).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +31,17 @@ class VerifyTxOutProof extends Component {
     return (
       <div className="VerifyTxOutProof">
         <h1 className="VerifyTxOutProof-title">VerifyTxOutProof</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Proof</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Proof"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

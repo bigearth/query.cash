@@ -19,11 +19,11 @@ class SignRawTransaction extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.SignRawTransaction(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    BITBOX.RawTransactions.SignRawTransaction(this.state.hex).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +31,20 @@ class SignRawTransaction extends Component {
     return (
       <div className="SignRawTransaction">
         <h1 className="SignRawTransaction-title">SignRawTransaction</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Raw Hex</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
+                    <label>Previous Transactions</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Previous Transactions"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+            <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
