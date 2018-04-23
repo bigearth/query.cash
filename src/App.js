@@ -59,7 +59,7 @@ class App extends Component {
 
 
 
-  handleClick = () => {
+  handleClick() {
     if(this.state.activeMenu === 'active') {
       this.setState({
         activeMenu: ''
