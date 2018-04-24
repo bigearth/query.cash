@@ -14,16 +14,16 @@ class DecodeScript extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hexstring: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.DecodeScript(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.RawTransactions.decodeScript(this.state.hexstring).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +31,17 @@ class DecodeScript extends Component {
     return (
       <div className="DecodeScript">
         <h1 className="DecodeScript-title">DecodeScript</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Raw Hex</label>
+              <input onChange={this.handleInputChange.bind(this)} id="hexstring" type="text" placeholder="hexstring"/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
