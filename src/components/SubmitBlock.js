@@ -11,15 +11,22 @@ class SubmitBlock extends Component {
     };
   }
 
-  handleInputChange(e) {
+  handleHexDataChange(e) {
     let value = e.target.value;
     this.setState({
       hexdata: value
     });
   }
 
+  handleParamsChange(e) {
+    let value = e.target.value;
+    this.setState({
+      parameters: value
+    });
+  }
+
   handleSubmit(e) {
-    this.props.bitbox.Mining.submitBlock(this.state.hexdata).then((result) => {
+    this.props.bitbox.Mining.submitBlock(this.state.hexdata, this.state.parameters).then((result) => {
       this.setState({
         data: result
       })
@@ -32,17 +39,21 @@ class SubmitBlock extends Component {
       <div className="SubmitBlock">
         <h1 className="SubmitBlock-title">SubmitBlock</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Raw Hex</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="hexdata"/>
-                    <label>Parameters</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="parameters"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Raw Hex</label>
+                <input onChange={this.handleHexDataChange.bind(this)} id="hexdata" type="text" placeholder="hexdata"/>
+              </div>
+              <div>
+                <label>Parameters</label>
+                <input onChange={this.handleParamsChange.bind(this)} id="parameters" type="text" placeholder="parameters"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>

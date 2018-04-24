@@ -11,15 +11,22 @@ class SignRawTransaction extends Component {
     };
   }
 
-  handleInputChange(e) {
+  handleHexChange(e) {
     let value = e.target.value;
     this.setState({
       hex: value
     });
   }
 
+  handlePrevChange(e) {
+    let value = e.target.value;
+    this.setState({
+      prev: value
+    });
+  }
+
   handleSubmit(e) {
-    this.props.bitbox.RawTransactions.signRawTransaction(this.state.hex).then((result) => {
+    this.props.bitbox.RawTransactions.signRawTransaction(this.state.hex, this.state.prev).then((result) => {
       this.setState({
         data: result
       })
@@ -32,18 +39,21 @@ class SignRawTransaction extends Component {
       <div className="SignRawTransaction">
         <h1 className="SignRawTransaction-title">SignRawTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Raw Hex</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
-                    <label>Previous Transactions</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Previous Transactions"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
-            <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Raw Hex</label>
+                <input onChange={this.handleHexChange.bind(this)} id="hexstring" type="text" placeholder="Raw Hex"/>
+              </div>
+              <div>
+                <label>Previous Transactions</label>
+                <input onChange={this.handlePrevChange.bind(this)} id="prevtxs" type="text" placeholder="Previous Transactions"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
@@ -54,7 +64,6 @@ class SignRawTransaction extends Component {
   this transaction depends on but may not yet be in the block chain.
   The third optional argument (may be null) is an array of base58-encoded private
   keys that, if given, will be the only keys used to sign the transaction.
-
 
   Arguments:
   1. "hexstring"     (string, required) The transaction hex string
