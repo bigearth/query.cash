@@ -19,11 +19,11 @@ class GetBlockHash extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetBlockHash(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.BITBOX.Blockchain.getBlockHash(this.state.height).then((result) => {
+      this.setState({
+        height: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,9 +31,19 @@ class GetBlockHash extends Component {
     return (
       <div className="GetBlockHash">
         <h1 className="GetBlockHash-title">GetBlockHash</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Height</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Height"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
         <h2>Command Result</h2>
-        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
+        <JSONPretty id="json-pretty" json={this.state.height}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   Returns hash of block in best-block-chain at height provided.

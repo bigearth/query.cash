@@ -19,11 +19,11 @@ class GetRawMempool extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetRawMempool(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.BITBOX.Blockchain.getRawMempool(this.state.verbose).then((result) => {
+      this.setState({
+        verbose: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +31,17 @@ class GetRawMempool extends Component {
     return (
       <div className="GetRawMempool">
         <h1 className="GetRawMempool-title">GetRawMempool</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Verbose</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Verbose"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

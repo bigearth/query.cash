@@ -35,7 +35,7 @@ class ValidateAddress extends Component {
             <fieldset>
                 <div className="pure-control-group">
                     <label>Address</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Address"/>
+                    <input onChange={this.handleInputChange.bind(this)} id="address" type="text" placeholder="Address"/>
                 </div>
                 <div>
                     <button type="submit" className="pure-button pure-button-primary">Submit</button>
