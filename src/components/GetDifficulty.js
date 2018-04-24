@@ -12,7 +12,7 @@ class GetDifficulty extends Component {
   }
 
   handleSubmit(e) {
-    this.BITBOX.Blockchain.getDifficulty().then((result) => {
+    this.props.bitbox.Blockchain.getDifficulty().then((result) => {
       this.setState({
         data: JSON.stringify(result)
       })
