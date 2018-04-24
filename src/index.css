@@ -259,7 +259,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   width: inherit;
 }
 
-.GetRawTransaction input, .DecodeRawTransaction input, .SendRawTransaction input {
+input {
   width: 75%;
 }
 
@@ -285,4 +285,8 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 .Homepage .blue {
   text-decoration: none;
   color: #1f8dd6;
+}
+
+.pure-button-primary {
+  background-color: #1f8dd6;
 }

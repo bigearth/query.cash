@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class VerifyTxOutProof extends Component {
   constructor(props) {
     super(props);
@@ -24,16 +14,16 @@ class VerifyTxOutProof extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      proof: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.VerifyTxOutProof(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Blockchain.verifyTxOutProof(this.state.proof).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -41,7 +31,17 @@ class VerifyTxOutProof extends Component {
     return (
       <div className="VerifyTxOutProof">
         <h1 className="VerifyTxOutProof-title">VerifyTxOutProof</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Proof</label>
+              <input onChange={this.handleInputChange.bind(this)} id="proof" type="text" placeholder="Proof"/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

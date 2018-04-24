@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class SignRawTransaction extends Component {
   constructor(props) {
     super(props);
@@ -21,19 +11,26 @@ class SignRawTransaction extends Component {
     };
   }
 
-  handleInputChange(e) {
+  handleHexChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hex: value
+    });
+  }
+
+  handlePrevChange(e) {
+    let value = e.target.value;
+    this.setState({
+      prev: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.SignRawTransaction(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.RawTransactions.signRawTransaction(this.state.hex, this.state.prev).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -41,7 +38,23 @@ class SignRawTransaction extends Component {
     return (
       <div className="SignRawTransaction">
         <h1 className="SignRawTransaction-title">SignRawTransaction</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Raw Hex</label>
+                <input onChange={this.handleHexChange.bind(this)} id="hexstring" type="text" placeholder="Raw Hex"/>
+              </div>
+              <div>
+                <label>Previous Transactions</label>
+                <input onChange={this.handlePrevChange.bind(this)} id="prevtxs" type="text" placeholder="Previous Transactions"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
@@ -51,7 +64,6 @@ class SignRawTransaction extends Component {
   this transaction depends on but may not yet be in the block chain.
   The third optional argument (may be null) is an array of base58-encoded private
   keys that, if given, will be the only keys used to sign the transaction.
-
 
   Arguments:
   1. "hexstring"     (string, required) The transaction hex string

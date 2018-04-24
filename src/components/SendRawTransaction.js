@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class SendRawTransaction extends Component {
   constructor(props) {
     super(props);
@@ -30,9 +20,9 @@ class SendRawTransaction extends Component {
   }
 
   handleSubmit(e) {
-    BITBOX.RawTransactions.sendRawTransaction(this.state.hex).then((result) => {
+    this.props.bitbox.RawTransactions.sendRawTransaction(this.state.hex).then((result) => {
       this.setState({
-        data: JSON.stringify(result)
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();
@@ -44,17 +34,18 @@ class SendRawTransaction extends Component {
       <div className="SendRawTransaction">
         <h1 className="SendRawTransaction-title">SendRawTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Raw Hex</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
-            <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
+          <fieldset>
+              <div className="pure-control-group">
+                  <label>Raw Hex</label>
+                  <input onChange={this.handleInputChange.bind(this)} id="hex" type="text" placeholder="Raw Hex"/>
+              </div>
+              <div>
+                  <button type="submit" className="pure-button pure-button-primary">Submit</button>
+              </div>
+          </fieldset>
         </form>
+        <h2>Command Result</h2>
+        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   Submits raw transaction (serialized, hex-encoded) to local node and network.

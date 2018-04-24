@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class CreateRawTransaction extends Component {
   constructor(props) {
     super(props);
@@ -21,19 +11,33 @@ class CreateRawTransaction extends Component {
     };
   }
 
-  handleInputChange(e) {
+  handleInputsChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      inputs: value
+    });
+  }
+
+  handleOutputsChange(e) {
+    let value = e.target.value;
+    this.setState({
+      outputs: value
+    });
+  }
+
+  handleLocktimeChange(e) {
+    let value = e.target.value;
+    this.setState({
+      locktime: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.CreateRawTransaction(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.RawTransactions.createRawTransaction(this.state.inputs, this.state.outputs, this.state.locktime).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -41,7 +45,27 @@ class CreateRawTransaction extends Component {
     return (
       <div className="CreateRawTransaction">
         <h1 className="CreateRawTransaction-title">CreateRawTransaction</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Inputs</label>
+                <input onChange={this.handleInputsChange.bind(this)} id="inputs" type="text" placeholder="inputs"/>
+              </div>
+              <div>
+                <label>Outputs</label>
+                <input onChange={this.handleOutputsChange.bind(this)} id="outputs" type="text" placeholder="outputs"/>
+              </div>
+              <div>
+                <label>Locktime</label>
+                <input onChange={this.handleLocktimeChange.bind(this)} id="locktime" type="text" placeholder="locktime"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

@@ -3,16 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ocean } from 'react-syntax-highlighter/styles/hljs';
 import JSONPretty from 'react-json-pretty';
 
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
-let BITBOX = new BITBOXCli({
-  protocol: 'http',
-  host: '138.68.54.100',
-  port: 8332,
-  username: 'bitcoin',
-  password: 'xhFjluMJMyOXcYvF',
-  corsproxy: true
-});
-
 class SubmitBlock extends Component {
   constructor(props) {
     super(props);
@@ -21,19 +11,26 @@ class SubmitBlock extends Component {
     };
   }
 
-  handleInputChange(e) {
+  handleHexDataChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hexdata: value
+    });
+  }
+
+  handleParamsChange(e) {
+    let value = e.target.value;
+    this.setState({
+      parameters: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.SubmitBlock(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Mining.submitBlock(this.state.hexdata, this.state.parameters).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -41,7 +38,23 @@ class SubmitBlock extends Component {
     return (
       <div className="SubmitBlock">
         <h1 className="SubmitBlock-title">SubmitBlock</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Raw Hex</label>
+                <input onChange={this.handleHexDataChange.bind(this)} id="hexdata" type="text" placeholder="hexdata"/>
+              </div>
+              <div>
+                <label>Parameters</label>
+                <input onChange={this.handleParamsChange.bind(this)} id="parameters" type="text" placeholder="parameters"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
