@@ -12,6 +12,13 @@ class GetRawTransaction extends Component {
     };
   }
 
+  handleVerboseChange(e){
+    let value = e.target.value;
+    this.setState({
+      txid: value
+    });
+  }
+
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
@@ -36,13 +43,21 @@ class GetRawTransaction extends Component {
           <fieldset>
             <div className="pure-control-group">
               <label>TXID</label>
-              <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="TXID"/>
+              <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="TXID"/>     
+              <div>
+                <label>
+                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked="checked" /> true
+                </label>
+                <label>
+                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked=""/> false
+                </label>
+              </div>
             </div>
+ 
             <div>
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>
-
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>

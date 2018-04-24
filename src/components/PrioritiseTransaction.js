@@ -56,16 +56,16 @@ class PrioritiseTransaction extends Component {
           <fieldset>
             <div className="pure-control-group">
               <div>
-                <label>Transaction ID</label>
-                <input onChange={this.handleTransactionIdChange.bind(this)} id="txid" type="text" placeholder="Transaction Id"/>
+                <label>TXID*</label>
+                <input onChange={this.handleTransactionIdChange.bind(this)} id="txid" type="text" placeholder="TXID"/>
               </div>
               <div>
-                <label>Priority Delta</label>
-                <input onChange={this.handlePriorityDeltaChange.bind(this)} id="priority_delta" type="number" placeholder="Prioirty Delta"/>
+                <label>Priority*</label>
+                <input onChange={this.handlePriorityDeltaChange.bind(this)} id="priority_delta" type="number" placeholder="Prioirty"/>
               </div>
               <div>
-                <label>Fee Delta</label>
-                <input onChange={this.handleFeeDeltaChange.bind(this)} id="fee_delta" type="number" placeholder="Fee Delta"/>
+                <label>Fee*</label>
+                <input onChange={this.handleFeeDeltaChange.bind(this)} id="fee_delta" type="number" placeholder="Fee in satoshis"/>
               </div>
             </div>
             <div>
