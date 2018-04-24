@@ -11,19 +11,26 @@ class AddNode extends Component {
     };
   }
 
-  handleInputChange(e) {
+  handleNodeChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      node: value
+    });
+  }
+
+  handleCommandChange(e) {
+    let value = e.target.value;
+    this.setState({
+      command: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.AddNode(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Network.addNode(this.state.node, this.state.command).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +38,23 @@ class AddNode extends Component {
     return (
       <div className="AddNode">
         <h1 className="AddNode-title">AddNode</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Node</label>
+                <input onChange={this.handleNodeChange.bind(this)} id="node" type="text" placeholder="node"/>
+              </div>
+              <div>
+                <label>Command</label>
+                <input onChange={this.handleCommandChange.bind(this)} id="command" type="text" placeholder="command"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
