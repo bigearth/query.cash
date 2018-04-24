@@ -32,15 +32,15 @@ class GetBlockHash extends Component {
       <div className="GetBlockHash">
         <h1 className="GetBlockHash-title">GetBlockHash</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Height</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="height" type="text" placeholder="Height"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Height</label>
+              <input onChange={this.handleInputChange.bind(this)} id="height" type="text" placeholder="Height"/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>

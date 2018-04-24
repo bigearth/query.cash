@@ -34,7 +34,7 @@ class GetAddedNodeInfo extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <label>Raw Hex</label>
+              <label>node</label>
               <input onChange={this.handleInputChange.bind(this)} id="node" type="text" placeholder="node"/>
             </div>
             <div>

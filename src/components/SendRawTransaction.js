@@ -34,17 +34,18 @@ class SendRawTransaction extends Component {
       <div className="SendRawTransaction">
         <h1 className="SendRawTransaction-title">SendRawTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Raw Hex</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
-            <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
+          <fieldset>
+              <div className="pure-control-group">
+                  <label>Raw Hex</label>
+                  <input onChange={this.handleInputChange.bind(this)} id="hex" type="text" placeholder="Raw Hex"/>
+              </div>
+              <div>
+                  <button type="submit" className="pure-button pure-button-primary">Submit</button>
+              </div>
+          </fieldset>
         </form>
+        <h2>Command Result</h2>
+        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   Submits raw transaction (serialized, hex-encoded) to local node and network.

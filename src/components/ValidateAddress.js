@@ -32,15 +32,15 @@ class ValidateAddress extends Component {
       <div className="ValidateAddress">
         <h1 className="ValidateAddress-title">ValidateAddress</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Address</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="address" type="text" placeholder="Address"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Address</label>
+              <input onChange={this.handleInputChange.bind(this)} id="address" type="text" placeholder="Address"/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>

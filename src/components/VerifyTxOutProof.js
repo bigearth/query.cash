@@ -32,15 +32,15 @@ class VerifyTxOutProof extends Component {
       <div className="VerifyTxOutProof">
         <h1 className="VerifyTxOutProof-title">VerifyTxOutProof</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Proof</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="proof" type="text" placeholder="Proof"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Proof</label>
+              <input onChange={this.handleInputChange.bind(this)} id="proof" type="text" placeholder="Proof"/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
