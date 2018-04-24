@@ -19,7 +19,7 @@ class GetBlockTemplate extends Component {
   }
 
   handleSubmit(e) {
-    this.props.BITBOX.Mining.getBlockTemplate(this.state.template_request).then((result) => {
+    this.props.bitbox.Mining.getBlockTemplate(this.state.template_request).then((result) => {
       this.setState({
         template_request: result
       })

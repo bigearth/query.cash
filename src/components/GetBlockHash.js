@@ -19,7 +19,7 @@ class GetBlockHash extends Component {
   }
 
   handleSubmit(e) {
-    this.props.BITBOX.Blockchain.getBlockHash(this.state.height).then((result) => {
+    this.props.bitbox.Blockchain.getBlockHash(this.state.height).then((result) => {
       this.setState({
         height: result
       })

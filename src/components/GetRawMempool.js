@@ -19,7 +19,7 @@ class GetRawMempool extends Component {
   }
 
   handleSubmit(e) {
-    this.props.BITBOX.Blockchain.getRawMempool(this.state.verbose).then((result) => {
+    this.props.bitbox.Blockchain.getRawMempool(this.state.verbose).then((result) => {
       this.setState({
         verbose: result
       })

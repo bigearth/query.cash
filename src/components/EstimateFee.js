@@ -14,16 +14,16 @@ class EstimateFee extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      nblocks: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.EstimateFee(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Util.estimateFee(this.state.nblocks).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +31,17 @@ class EstimateFee extends Component {
     return (
       <div className="EstimateFee">
         <h1 className="EstimateFee-title">EstimateFee</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Raw Hex</label>
+              <input onChange={this.handleInputChange.bind(this)} id="nblocks" type="text" placeholder="nblocks "/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

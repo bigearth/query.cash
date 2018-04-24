@@ -40,7 +40,7 @@ class PrioritiseTransaction extends Component {
   }
 
   handleSubmit(e) {
-    this.props.BITBOX.Mining.prioritiseTransaction(this.state.txid, this.state.priority_delta, this.state.fee_delta).then((result) => {
+    this.props.bitbox.Mining.prioritiseTransaction(this.state.txid, this.state.priority_delta, this.state.fee_delta).then((result) => {
       this.setState({
         data: result
       })
