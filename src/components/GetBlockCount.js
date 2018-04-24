@@ -12,7 +12,7 @@ class GetBlockCount extends Component {
   }
 
   handleSubmit(e) {
-    this.props.bitbox.Blockchain.getBlockCount(this.state.txid).then((result) => {
+    this.props.bitbox.Blockchain.getBlockCount().then((result) => {
       this.setState({
         data: JSON.stringify(result)
       })

@@ -14,14 +14,14 @@ class GetBlockHash extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      height: value
     });
   }
 
   handleSubmit(e) {
     this.props.bitbox.Blockchain.getBlockHash(this.state.height).then((result) => {
       this.setState({
-        height: result
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();
@@ -35,7 +35,7 @@ class GetBlockHash extends Component {
             <fieldset>
                 <div className="pure-control-group">
                     <label>Height</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Height"/>
+                    <input onChange={this.handleInputChange.bind(this)} id="height" type="text" placeholder="Height"/>
                 </div>
                 <div>
                     <button type="submit" className="pure-button pure-button-primary">Submit</button>

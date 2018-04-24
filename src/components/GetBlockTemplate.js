@@ -14,14 +14,14 @@ class GetBlockTemplate extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      template_request: value
     });
   }
 
   handleSubmit(e) {
     this.props.bitbox.Mining.getBlockTemplate(this.state.template_request).then((result) => {
       this.setState({
-        template_request: result
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();
@@ -32,15 +32,15 @@ class GetBlockTemplate extends Component {
       <div className="GetBlockTemplate">
         <h1 className="GetBlockTemplate-title">GetBlockTemplate</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Template Request</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Template Address"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Template Request</label>
+              <input onChange={this.handleInputChange.bind(this)} id="template_request" type="text" placeholder="Template Address"/>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.template_request}></JSONPretty>
