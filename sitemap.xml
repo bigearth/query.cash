@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+  <loc>https://www.query.cash</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/addnode</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/createrawtransaction</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/decoderawtransaction</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/decodescript</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/estimatefee</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/estimatepriority</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getaddednodeinfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getbestblockhash</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getblock</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getblockchaininfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getblockcount</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getblockhash</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getblocktemplate</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getchaintips</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getconnectioncount</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getdifficulty</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getinfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getmempoolinfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getmininginfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getnettotals</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getnetworkhashps</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getnetworkinfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getpeerinfo</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getrawmempool</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/getrawtransaction</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/gettxout</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/gettxoutproof</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/prioritisetransaction</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/sendrawtransaction</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/signrawtransaction</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/submitblock</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/validateaddress</loc>
+</url>
+
+<url>
+  <loc>https://www.query.cash/verifytxoutproof</loc>
+</url>
+
+</urlset>
