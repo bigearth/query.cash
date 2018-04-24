@@ -11,6 +11,20 @@ class GetTxOutProof extends Component {
     };
   }
 
+  handleTransactionIdsChange(e) {
+    let value = e.target.value;
+    this.setState({
+      txid: value
+    });
+  }
+
+  handleBlockHashChange(e) {
+    let value = e.target.value;
+    this.setState({
+      blockhash: value
+    });
+  }
+
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
@@ -19,11 +33,11 @@ class GetTxOutProof extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetTxOutProof(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Blockchain.getTxOutProof(this.state.txid, this.state.blockhash).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +45,23 @@ class GetTxOutProof extends Component {
     return (
       <div className="GetTxOutProof">
         <h1 className="GetTxOutProof-title">GetTxOutProof</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>TXIDs*</label>
+                <input onChange={this.handleTransactionIdsChange.bind(this)} id="txid" type="text" placeholder="TXID 1"/>
+              </div>
+              <div>
+                <label>Block Hash</label>
+                <input onChange={this.handleBlockHashChange.bind(this)} id="blockhash" type="number" placeholder="Block header hash"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

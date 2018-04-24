@@ -42,7 +42,7 @@ class SubmitBlock extends Component {
           <fieldset>
             <div className="pure-control-group">
               <div>
-                <label>Raw Hex</label>
+                <label>Hex-encoded block*</label>
                 <input onChange={this.handleHexDataChange.bind(this)} id="hexdata" type="text" placeholder="hexdata"/>
               </div>
               <div>

@@ -11,6 +11,35 @@ class GetTxOut extends Component {
     };
   }
 
+  handleTransactionIdChange(e) {
+    let value = e.target.value;
+    this.setState({
+      txid: value
+    });
+  }
+
+  handleVoutChange(e) {
+    let value = e.target.value;
+    this.setState({
+      vout: value
+    });
+  }
+
+  handleIncludeMempoolChange(e) {
+    let value = e.target.value;
+    let checkedVal = 'checked';
+    
+    if(e.target.checked===""){
+      this.setState({
+        checked: checkedVal,
+        include_mempool: value
+      });
+    }
+    // this.setState({
+    //   include_mempool: value
+    // });
+  }
+
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
@@ -19,11 +48,11 @@ class GetTxOut extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetTxOut(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Blockchain.getTxOut(this.state.txid, this.state.vout, this.state.include_mempool).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +60,34 @@ class GetTxOut extends Component {
     return (
       <div className="GetTxOut">
         <h1 className="GetTxOut-title">GetTxOut</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Transaction ID*</label>
+                <input onChange={this.handleTransactionIdChange.bind(this)} id="txid" type="text" placeholder="Transaction ID"/>
+              </div>
+              <div>
+                <label>Vout*</label>
+                <input onChange={this.handleVoutChange.bind(this)} id="vout" type="number" placeholder="Vout #"/>
+              </div>
+              <div>
+                <label>Include Unconfirmed</label>
+                <div>
+                    <label>
+                      <input onChange={this.handleIncludeMempoolChange.bind(this)} id="include_mempool"  type="radio" name="highfee" value="true" checked="checked" /> true
+                    </label>
+                    <label>
+                      <input onChange={this.handleIncludeMempoolChange.bind(this)} id="include_mempool" type="radio" name="highfee" value="false" checked={this.state.checked}/> false
+                    </label>
+                  </div>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

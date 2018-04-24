@@ -11,19 +11,26 @@ class GetBlock extends Component {
     };
   }
 
+  handleVerboseChange(e){
+    let value = e.target.value;
+    this.setState({
+      verbose: value
+    });
+  }
+
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      hex: value
     });
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetBlock(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.bitbox.Blockchain.getBlock(this.state.hex, this.state.verbose).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +38,25 @@ class GetBlock extends Component {
     return (
       <div className="GetBlock">
         <h1 className="GetBlock-title">GetBlock</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Block Hash*</label>
+              <input onChange={this.handleInputChange.bind(this)} id="blockhash" type="text" placeholder="Block header hash"/>
+              <div>
+                <label>
+                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked="checked" /> true
+                </label>
+                <label>
+                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked=""/> false
+                </label>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

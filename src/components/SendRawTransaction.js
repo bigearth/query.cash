@@ -12,6 +12,13 @@ class SendRawTransaction extends Component {
     };
   }
 
+  handleHighFeesChange(e) {
+    let value = e.target.value;
+    this.setState({
+      highfees: value
+    });
+  }
+
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
@@ -20,7 +27,7 @@ class SendRawTransaction extends Component {
   }
 
   handleSubmit(e) {
-    this.props.bitbox.RawTransactions.sendRawTransaction(this.state.hex).then((result) => {
+    this.props.bitbox.RawTransactions.sendRawTransaction(this.state.hex, this.state.highfees).then((result) => {
       this.setState({
         data: result
       })
@@ -36,8 +43,18 @@ class SendRawTransaction extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
               <div className="pure-control-group">
-                  <label>Raw Hex</label>
-                  <input onChange={this.handleInputChange.bind(this)} id="hex" type="text" placeholder="Raw Hex"/>
+                  <label>Transaction*</label>
+                  <input onChange={this.handleInputChange.bind(this)} id="hex" type="text" placeholder="Hex transaction"/>
+                  <br />
+                  <label>Allow High Fees*</label>
+                  <div>
+                    <label>
+                      <input onChange={this.handleHighFeesChange.bind(this)} id="highfeetrue"  type="radio" name="highfee" value="true"/> true
+                    </label>
+                    <label>
+                      <input onChange={this.handleHighFeesChange.bind(this)} type="radio" name="highfee" id="highfeefalse" value="false" checked=""/> false
+                    </label>
+                  </div>
               </div>
               <div>
                   <button type="submit" className="pure-button pure-button-primary">Submit</button>

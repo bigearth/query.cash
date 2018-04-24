@@ -34,7 +34,7 @@ class VerifyTxOutProof extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <label>Proof</label>
+              <label>Proof*</label>
               <input onChange={this.handleInputChange.bind(this)} id="proof" type="text" placeholder="Proof"/>
             </div>
             <div>

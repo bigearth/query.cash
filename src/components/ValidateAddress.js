@@ -34,7 +34,7 @@ class ValidateAddress extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <label>Address</label>
+              <label>Bitcoin Cash Address*</label>
               <input onChange={this.handleInputChange.bind(this)} id="address" type="text" placeholder="Address"/>
             </div>
             <div>
