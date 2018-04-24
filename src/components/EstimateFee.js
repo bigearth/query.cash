@@ -35,7 +35,7 @@ class EstimateFee extends Component {
           <fieldset>
             <div className="pure-control-group">
               <label>Raw Hex</label>
-              <input onChange={this.handleInputChange.bind(this)} id="nblocks" type="text" placeholder="nblocks "/>
+              <input onChange={this.handleInputChange.bind(this)} id="nblocks" type="text" placeholder="nblocks" />
             </div>
             <div>
               <button type="submit" className="pure-button pure-button-primary">Submit</button>

@@ -14,7 +14,7 @@ class GetBestBlockHash extends Component {
   handleSubmit(e) {
     this.props.bitbox.Blockchain.getBestBlockHash().then((result) => {
       this.setState({
-        data: JSON.stringify(result)
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();

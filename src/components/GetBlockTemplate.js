@@ -43,7 +43,7 @@ class GetBlockTemplate extends Component {
           </fieldset>
         </form>
         <h2>Command Result</h2>
-        <JSONPretty id="json-pretty" json={this.state.template_request}></JSONPretty>
+        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.

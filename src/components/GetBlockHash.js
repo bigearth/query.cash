@@ -43,7 +43,7 @@ class GetBlockHash extends Component {
             </fieldset>
         </form>
         <h2>Command Result</h2>
-        <JSONPretty id="json-pretty" json={this.state.height}></JSONPretty>
+        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   Returns hash of block in best-block-chain at height provided.

@@ -14,7 +14,7 @@ class GetMiningInfo extends Component {
   handleSubmit(e) {
     this.props.bitbox.Mining.getMiningInfo(this.state.txid).then((result) => {
       this.setState({
-        data: JSON.stringify(result)
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();

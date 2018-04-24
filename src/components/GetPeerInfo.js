@@ -14,7 +14,7 @@ class GetPeerInfo extends Component {
   handleSubmit(e) {
     this.props.bitbox.Network.getPeerInfo(this.state.txid).then((result) => {
       this.setState({
-        data: JSON.stringify(result)
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();

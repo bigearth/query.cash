@@ -14,14 +14,14 @@ class EstimatePriority extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      nblocks: value
     });
   }
 
   handleSubmit(e) {
     this.props.bitbox.Util.estimatePriority(this.state.nblocks).then((result) => {
       this.setState({
-        nblocks: result
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();

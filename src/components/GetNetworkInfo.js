@@ -14,7 +14,7 @@ class GetNetworkInfo extends Component {
   handleSubmit(e) {
     this.props.bitbox.Network.getNetworkInfo(this.state.txid).then((result) => {
       this.setState({
-        data: JSON.stringify(result)
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();

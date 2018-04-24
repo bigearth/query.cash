@@ -14,7 +14,7 @@ class GetInfo extends Component {
   handleSubmit(e) {
     this.props.bitbox.Control.getInfo().then((result) => {
       this.setState({
-        data: JSON.stringify(result)
+        data: result
       })
     }, (err) => { console.log(err); });
     e.preventDefault();
