@@ -11,6 +11,27 @@ class PrioritiseTransaction extends Component {
     };
   }
 
+  handleTransactionIdChange(e) {
+    let value = e.target.value;
+    this.setState({
+      txid: value
+    });
+  }
+
+  handlePriorityDeltaChange(e) {
+    let value = e.target.value;
+    this.setState({
+      priority_delta: value
+    });
+  }
+
+  handleFeeDeltaChange(e) {
+    let value = e.target.value;
+    this.setState({
+      fee_delta: value
+    });
+  }
+
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
@@ -19,11 +40,11 @@ class PrioritiseTransaction extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.PrioritiseTransaction(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.BITBOX.Mining.prioritiseTransaction(this.state.txid, this.state.priority_delta, this.state.fee_delta).then((result) => {
+      this.setState({
+        data: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,7 +52,27 @@ class PrioritiseTransaction extends Component {
     return (
       <div className="PrioritiseTransaction">
         <h1 className="PrioritiseTransaction-title">PrioritiseTransaction</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
+            <div className="pure-control-group">
+              <div>
+                <label>Transaction ID</label>
+                <input onChange={this.handleTransactionIdChange.bind(this)} id="txid" type="text" placeholder="Transaction Id"/>
+              </div>
+              <div>
+                <label>Priority Delta</label>
+                <input onChange={this.handlePriorityDeltaChange.bind(this)} id="priority_delta" type="number" placeholder="Prioirty Delta"/>
+              </div>
+              <div>
+                <label>Fee Delta</label>
+                <input onChange={this.handleFeeDeltaChange.bind(this)} id="fee_delta" type="number" placeholder="Fee Delta"/>
+              </div>
+            </div>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
         <h2>RPC Help</h2>

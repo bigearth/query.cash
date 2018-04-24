@@ -19,11 +19,11 @@ class GetBlockTemplate extends Component {
   }
 
   handleSubmit(e) {
-    // BITBOX.RawTransactions.GetBlockTemplate(this.state.txid).then((result) => {
-    //   this.setState({
-    //     data: result
-    //   })
-    // }, (err) => { console.log(err); });
+    this.props.BITBOX.Mining.getBlockTemplate(this.state.template_request).then((result) => {
+      this.setState({
+        template_request: result
+      })
+    }, (err) => { console.log(err); });
     e.preventDefault();
   }
 
@@ -31,9 +31,19 @@ class GetBlockTemplate extends Component {
     return (
       <div className="GetBlockTemplate">
         <h1 className="GetBlockTemplate-title">GetBlockTemplate</h1>
-        <p>Coming Soon</p>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+            <fieldset>
+                <div className="pure-control-group">
+                    <label>Template Request</label>
+                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Template Address"/>
+                </div>
+                <div>
+                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
         <h2>Command Result</h2>
-        <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
+        <JSONPretty id="json-pretty" json={this.state.template_request}></JSONPretty>
         <h2>RPC Help</h2>
         <SyntaxHighlighter language='bash' style={ocean}>{`
   If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.
