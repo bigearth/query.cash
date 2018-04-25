@@ -7,6 +7,8 @@ class SignRawTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hex: 'null',
+      prev: 'null',
       data: 'null'
     };
   }

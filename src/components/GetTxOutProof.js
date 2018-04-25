@@ -7,6 +7,9 @@ class GetTxOutProof extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      txid: 'null',
+      blockhash: 'null',
+      data: 'null',
       data: 'null'
     };
   }
@@ -22,13 +25,6 @@ class GetTxOutProof extends Component {
     let value = e.target.value;
     this.setState({
       blockhash: value
-    });
-  }
-
-  handleInputChange(e) {
-    let value = e.target.value;
-    this.setState({
-      txid: value
     });
   }
 

@@ -7,6 +7,7 @@ class GetRawMempool extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      verbose: 'null',
       data: 'null'
     };
   }
@@ -14,7 +15,7 @@ class GetRawMempool extends Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({
-      txid: value
+      verbose: value
     });
   }
 
