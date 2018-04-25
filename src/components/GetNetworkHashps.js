@@ -7,12 +7,28 @@ class GetNetworkHashps extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      nblocks: 'null',
+      height: 'null',
       data: 'null'
     };
   }
 
+  handleNBlocksChange(e) {
+    let value = e.target.value;
+    this.setState({
+      nblocks: value
+    });
+  }
+
+  handleHeightChange(e) {
+    let value = e.target.value;
+    this.setState({
+      height: value
+    });
+  }
+
   handleSubmit(e) {
-    this.props.bitbox.Mining.getNetworkHashps(this.state.txid).then((result) => {
+    this.props.bitbox.Mining.getNetworkHashps(this.state.nblocks, this.state.height).then((result) => {
       this.setState({
         data: result
       })
@@ -25,6 +41,16 @@ class GetNetworkHashps extends Component {
       <div className="GetNetworkHashps">
         <h1 className="GetNetworkHashps-title">GetNetworkHashps</h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
+            <div className="pure-control-group">
+              <div>
+                <label>NBlocks*</label>
+                <input onChange={this.handleNBlocksChange.bind(this)} id="nblocks" type="text" placeholder="nblocks"/>
+              </div>
+              <div>
+                <label>Height</label>
+                <input onChange={this.handleHeightChange.bind(this)} id="height" type="text" placeholder="height"/>
+              </div>
+            </div>
           <button type="submit" className="pure-button pure-button-primary">Submit</button>
         </form>
         <h2>Command Result</h2>

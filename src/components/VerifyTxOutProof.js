@@ -7,6 +7,7 @@ class VerifyTxOutProof extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      proof: 'null',
       data: 'null'
     };
   }

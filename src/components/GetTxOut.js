@@ -7,6 +7,7 @@ class GetTxOut extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      checked: true,
       data: 'null'
     };
   }
@@ -27,11 +28,12 @@ class GetTxOut extends Component {
 
   handleIncludeMempoolChange(e) {
     let value = e.target.value;
-    let checkedVal = 'checked';
     
+    alert();
     if(e.target.checked===""){
+      alert();
       this.setState({
-        checked: checkedVal,
+        checked: true,
         include_mempool: value
       });
     }
@@ -55,7 +57,7 @@ class GetTxOut extends Component {
     }, (err) => { console.log(err); });
     e.preventDefault();
   }
-
+  
   render() {
     return (
       <div className="GetTxOut">
@@ -75,10 +77,10 @@ class GetTxOut extends Component {
                 <label>Include Unconfirmed</label>
                 <div>
                     <label>
-                      <input onChange={this.handleIncludeMempoolChange.bind(this)} id="include_mempool"  type="radio" name="highfee" value="true" checked="checked" /> true
+                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool"  type="radio" name="highfee" value="true" checked={this.state.checked} /> true
                     </label>
                     <label>
-                      <input onChange={this.handleIncludeMempoolChange.bind(this)} id="include_mempool" type="radio" name="highfee" value="false" checked={this.state.checked}/> false
+                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool" type="radio" name="highfee" value="false" checked={this.state.checked}/> false
                     </label>
                   </div>
               </div>

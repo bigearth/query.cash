@@ -7,6 +7,9 @@ class PrioritiseTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      txid: '',
+      priority_delta: '',
+      fee_delta: '',
       data: 'null'
     };
   }

@@ -8,6 +8,7 @@ class SendRawTransaction extends Component {
     super(props);
     this.state = {
       hex: '',
+      highfees: '',
       data: 'null'
     };
   }

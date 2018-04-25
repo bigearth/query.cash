@@ -7,6 +7,7 @@ class GetRawTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      verbose: '',
       txid: '',
       data: 'null'
     };
@@ -15,7 +16,7 @@ class GetRawTransaction extends Component {
   handleVerboseChange(e){
     let value = e.target.value;
     this.setState({
-      txid: value
+      verbose: value
     });
   }
 
@@ -27,7 +28,7 @@ class GetRawTransaction extends Component {
   }
 
   handleSubmit(e) {
-    this.props.bitbox.RawTransactions.getRawTransaction(this.state.txid).then((result) => {
+    this.props.bitbox.RawTransactions.getRawTransaction(this.state.txid, this.state.verbose).then((result) => {
       this.setState({
         data: result
       })

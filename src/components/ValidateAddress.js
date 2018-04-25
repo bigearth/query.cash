@@ -7,6 +7,7 @@ class ValidateAddress extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      address: 'null',
       data: 'null'
     };
   }

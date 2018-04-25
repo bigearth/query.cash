@@ -7,6 +7,8 @@ class SubmitBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hex: 'null',  
+      parameters: 'null',  
       data: 'null'
     };
   }
@@ -14,7 +16,7 @@ class SubmitBlock extends Component {
   handleHexDataChange(e) {
     let value = e.target.value;
     this.setState({
-      hexdata: value
+      hex: value
     });
   }
 
@@ -26,7 +28,7 @@ class SubmitBlock extends Component {
   }
 
   handleSubmit(e) {
-    this.props.bitbox.Mining.submitBlock(this.state.hexdata, this.state.parameters).then((result) => {
+    this.props.bitbox.Mining.submitBlock(this.state.hex, this.state.parameters).then((result) => {
       this.setState({
         data: result
       })
