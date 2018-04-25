@@ -43,11 +43,11 @@ class GetBlock extends Component {
             <div className="pure-control-group">
               <label>Block Hash*</label>
               <input onChange={this.handleInputChange.bind(this)} id="blockhash" type="text" placeholder="Block header hash"/>
-              <div className='pure-control-group'>
-                <label>Verbose</label>
-                <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked={this.state.verbose} /> true
-                <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked={!this.state.verbose} /> false
-              </div>
+            </div>
+            <div className='pure-control-group'>
+              <label>Verbose</label>
+              <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked={this.state.verbose} /> true
+              <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked={!this.state.verbose} /> false
             </div>
             <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
