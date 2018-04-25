@@ -42,17 +42,17 @@ class SignRawTransaction extends Component {
         <h1 className="SignRawTransaction-title">SignRawTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-            <div className="pure-control-group">
-              <div>
+            <div>
+              <div className="pure-control-group">
                 <label>Raw Hex</label>
                 <input onChange={this.handleHexChange.bind(this)} id="hexstring" type="text" placeholder="Raw Hex"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Previous Transactions</label>
                 <input onChange={this.handlePrevChange.bind(this)} id="prevtxs" type="text" placeholder="Previous Transactions"/>
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

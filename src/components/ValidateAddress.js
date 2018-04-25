@@ -38,7 +38,7 @@ class ValidateAddress extends Component {
               <label>Bitcoin Cash Address*</label>
               <input onChange={this.handleInputChange.bind(this)} id="address" type="text" placeholder="Address"/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

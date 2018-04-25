@@ -38,7 +38,7 @@ class GetRawMempool extends Component {
               <label>Verbose</label>
               <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Verbose"/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

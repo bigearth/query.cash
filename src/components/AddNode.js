@@ -50,7 +50,7 @@ class AddNode extends Component {
                 <input onChange={this.handleCommandChange.bind(this)} id="command" type="text" placeholder="command"/>
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

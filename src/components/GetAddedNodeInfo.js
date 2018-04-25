@@ -37,7 +37,7 @@ class GetAddedNodeInfo extends Component {
               <label>node</label>
               <input onChange={this.handleInputChange.bind(this)} id="node" type="text" placeholder="node"/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

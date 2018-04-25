@@ -61,7 +61,7 @@ class CreateRawTransaction extends Component {
                 <input onChange={this.handleLocktimeChange.bind(this)} id="locktime" type="text" placeholder="locktime"/>
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

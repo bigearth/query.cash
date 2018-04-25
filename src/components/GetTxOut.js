@@ -47,35 +47,29 @@ class GetTxOut extends Component {
     }, (err) => { console.log(err); });
     e.preventDefault();
   }
-  
+
   render() {
     return (
       <div className="GetTxOut">
         <h1 className="GetTxOut-title">GetTxOut</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-            <div className="pure-control-group">
-              <div>
+            <div>
+              <div className="pure-control-group">
                 <label>Transaction ID*</label>
                 <input onChange={this.handleTransactionIdChange.bind(this)} id="txid" type="text" placeholder="Transaction ID"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Vout*</label>
                 <input onChange={this.handleVoutChange.bind(this)} id="vout" type="number" placeholder="Vout #"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Include Unconfirmed</label>
-                <div>
-                    <label>
-                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool"  type="radio" name="highfee" value="true" checked={this.state.mempool} /> true
-                    </label>
-                    <label>
-                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool" type="radio" name="highfee" value="false" checked={!this.state.mempool}/> false
-                    </label>
-                  </div>
+                <input onChange={this.handleIncludeMempoolChange} id="include_mempool"  type="radio" name="highfee" value="true" checked={this.state.mempool} /> true
+                <input onChange={this.handleIncludeMempoolChange} id="include_mempool" type="radio" name="highfee" value="false" checked={!this.state.mempool}/> false
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

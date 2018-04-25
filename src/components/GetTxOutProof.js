@@ -43,17 +43,17 @@ class GetTxOutProof extends Component {
         <h1 className="GetTxOutProof-title">GetTxOutProof</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-            <div className="pure-control-group">
-              <div>
+            <div>
+              <div className="pure-control-group">
                 <label>TXIDs*</label>
                 <input onChange={this.handleTransactionIdsChange.bind(this)} id="txid" type="text" placeholder="TXID 1"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Block Hash</label>
                 <input onChange={this.handleBlockHashChange.bind(this)} id="blockhash" type="number" placeholder="Block header hash"/>
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

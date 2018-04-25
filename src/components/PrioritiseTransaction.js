@@ -57,21 +57,21 @@ class PrioritiseTransaction extends Component {
         <h1 className="PrioritiseTransaction-title">PrioritiseTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-            <div className="pure-control-group">
-              <div>
+            <div>
+              <div className="pure-control-group">
                 <label>TXID*</label>
                 <input onChange={this.handleTransactionIdChange.bind(this)} id="txid" type="text" placeholder="TXID"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Priority*</label>
                 <input onChange={this.handlePriorityDeltaChange.bind(this)} id="priority_delta" type="number" placeholder="Prioirty"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Fee*</label>
                 <input onChange={this.handleFeeDeltaChange.bind(this)} id="fee_delta" type="number" placeholder="Fee in satoshis"/>
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

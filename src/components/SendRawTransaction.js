@@ -42,23 +42,18 @@ class SendRawTransaction extends Component {
         <h1 className="SendRawTransaction-title">SendRawTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-              <div className="pure-control-group">
-                  <label>Transaction*</label>
-                  <input onChange={this.handleInputChange.bind(this)} id="hex" type="text" placeholder="Hex transaction"/>
-                  <br />
-                  <label>Allow High Fees*</label>
-                  <div>
-                    <label>
-                      <input onChange={this.handleHighFeesChange.bind(this)} id="highfeetrue"  type="radio" name="highfee" value="true" checked={this.state.highfees}/> true
-                    </label>
-                    <label>
-                      <input onChange={this.handleHighFeesChange.bind(this)} type="radio" name="highfee" id="highfeefalse" value="false" checked={this.state.highfees}/> false
-                    </label>
-                  </div>
-              </div>
-              <div>
-                  <button type="submit" className="pure-button pure-button-primary">Submit</button>
-              </div>
+            <div className="pure-control-group">
+              <label>Transaction*</label>
+              <input onChange={this.handleInputChange.bind(this)} id="hex" type="text" placeholder="Hex transaction"/>
+            </div>
+            <div className="pure-control-group">
+              <label>Allow High Fees*</label>
+              <input onChange={this.handleHighFeesChange.bind(this)} id="highfeetrue"  type="radio" name="highfee" value="true" checked={this.state.highfees}/> true
+              <input onChange={this.handleHighFeesChange.bind(this)} type="radio" name="highfee" id="highfeefalse" value="false" checked={this.state.highfees}/> false
+            </div>
+            <div className="pure-controls">
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
           </fieldset>
         </form>
         <h2>Command Result</h2>

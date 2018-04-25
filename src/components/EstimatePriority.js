@@ -37,7 +37,7 @@ class EstimatePriority extends Component {
               <label>nblocks</label>
               <input onChange={this.handleInputChange.bind(this)} id="nblocks" type="text" placeholder="nblocks "/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

@@ -42,20 +42,20 @@ class GetNetworkHashps extends Component {
         <h1 className="GetNetworkHashps-title">GetNetworkHashps</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-            <div className="pure-control-group">
-              <div>
+            <div>
+              <div className='pure-control-group'>
                 <label>NBlocks*</label>
                 <input onChange={this.handleNBlocksChange.bind(this)} id="nblocks" type="text" placeholder="nblocks"/>
               </div>
-              <div>
+              <div className='pure-control-group'>
                 <label>Height</label>
                 <input onChange={this.handleHeightChange.bind(this)} id="height" type="text" placeholder="height"/>
               </div>
             </div>
-          </fieldset>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>

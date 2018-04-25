@@ -37,7 +37,7 @@ class DecodeScript extends Component {
               <label>Raw Hex</label>
               <input onChange={this.handleInputChange.bind(this)} id="hexstring" type="text" placeholder="hexstring"/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

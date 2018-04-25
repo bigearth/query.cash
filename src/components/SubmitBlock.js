@@ -7,8 +7,8 @@ class SubmitBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hex: 'null',  
-      parameters: 'null',  
+      hex: 'null',
+      parameters: 'null',
       data: 'null'
     };
   }
@@ -42,17 +42,17 @@ class SubmitBlock extends Component {
         <h1 className="SubmitBlock-title">SubmitBlock</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
-            <div className="pure-control-group">
-              <div>
+            <div>
+              <div className="pure-control-group">
                 <label>Hex-encoded block*</label>
                 <input onChange={this.handleHexDataChange.bind(this)} id="hexdata" type="text" placeholder="hexdata"/>
               </div>
-              <div>
+              <div className="pure-control-group">
                 <label>Parameters</label>
                 <input onChange={this.handleParamsChange.bind(this)} id="parameters" type="text" placeholder="parameters"/>
               </div>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

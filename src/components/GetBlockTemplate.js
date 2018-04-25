@@ -37,7 +37,7 @@ class GetBlockTemplate extends Component {
               <label>Template Request</label>
               <input onChange={this.handleInputChange.bind(this)} id="template_request" type="text" placeholder="Template Address"/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

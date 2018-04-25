@@ -38,7 +38,7 @@ class VerifyTxOutProof extends Component {
               <label>Proof*</label>
               <input onChange={this.handleInputChange.bind(this)} id="proof" type="text" placeholder="Proof"/>
             </div>
-            <div>
+            <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
             </div>
           </fieldset>

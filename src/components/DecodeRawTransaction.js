@@ -34,15 +34,15 @@ class DecodeRawTransaction extends Component {
       <div className="DecodeRawTransaction">
         <h1 className="DecodeRawTransaction-title">DecodeRawTransaction</h1>
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
-            <fieldset>
-                <div className="pure-control-group">
-                    <label>Raw Hex</label>
-                    <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex"/>
-                </div>
-                <div>
-                    <button type="submit" className="pure-button pure-button-primary">Submit</button>
-                </div>
-            </fieldset>
+          <fieldset>
+            <div className="pure-control-group">
+              <label>Raw Hex</label>
+              <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Raw Hex" />
+            </div>
+            <div className="pure-controls">
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
+          </fieldset>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
