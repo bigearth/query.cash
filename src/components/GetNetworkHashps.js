@@ -40,7 +40,8 @@ class GetNetworkHashps extends Component {
     return (
       <div className="GetNetworkHashps">
         <h1 className="GetNetworkHashps-title">GetNetworkHashps</h1>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
+          <fieldset>
             <div className="pure-control-group">
               <div>
                 <label>NBlocks*</label>
@@ -51,7 +52,10 @@ class GetNetworkHashps extends Component {
                 <input onChange={this.handleHeightChange.bind(this)} id="height" type="text" placeholder="height"/>
               </div>
             </div>
-          <button type="submit" className="pure-button pure-button-primary">Submit</button>
+          </fieldset>
+            <div>
+              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+            </div>
         </form>
         <h2>Command Result</h2>
         <JSONPretty id="json-pretty" json={this.state.data}></JSONPretty>
