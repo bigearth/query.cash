@@ -7,7 +7,7 @@ class GetTxOut extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: true,
+      mempool: true,
       data: 'null'
     };
   }
@@ -27,19 +27,9 @@ class GetTxOut extends Component {
   }
 
   handleIncludeMempoolChange(e) {
-    let value = e.target.value;
-    
-    alert();
-    if(e.target.checked===""){
-      alert();
-      this.setState({
-        checked: true,
-        include_mempool: value
-      });
-    }
-    // this.setState({
-    //   include_mempool: value
-    // });
+    this.setState({
+      mempool: !this.state.mempool
+    });
   }
 
   handleInputChange(e) {
@@ -50,7 +40,7 @@ class GetTxOut extends Component {
   }
 
   handleSubmit(e) {
-    this.props.bitbox.Blockchain.getTxOut(this.state.txid, this.state.vout, this.state.include_mempool).then((result) => {
+    this.props.bitbox.Blockchain.getTxOut(this.state.txid, this.state.vout, this.state.mempool).then((result) => {
       this.setState({
         data: result
       })
@@ -77,10 +67,10 @@ class GetTxOut extends Component {
                 <label>Include Unconfirmed</label>
                 <div>
                     <label>
-                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool"  type="radio" name="highfee" value="true" checked={this.state.checked} /> true
+                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool"  type="radio" name="highfee" value="true" checked={this.state.mempool} /> true
                     </label>
                     <label>
-                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool" type="radio" name="highfee" value="false" checked={this.state.checked}/> false
+                      <input onChange={this.handleIncludeMempoolChange} id="include_mempool" type="radio" name="highfee" value="false" checked={!this.state.mempool}/> false
                     </label>
                   </div>
               </div>

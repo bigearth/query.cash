@@ -7,16 +7,15 @@ class GetRawTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      verbose: '',
+      verbose: false,
       txid: '',
       data: 'null'
     };
   }
 
   handleVerboseChange(e){
-    let value = e.target.value;
     this.setState({
-      verbose: value
+      verbose: !this.state.verbose
     });
   }
 
@@ -47,10 +46,10 @@ class GetRawTransaction extends Component {
               <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="TXID"/>     
               <div>
                 <label>
-                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked="checked" /> true
+                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked={this.state.verbose} /> true
                 </label>
                 <label>
-                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked=""/> false
+                  <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked={!this.state.verbose}/> false
                 </label>
               </div>
             </div>

@@ -14,9 +14,8 @@ class SendRawTransaction extends Component {
   }
 
   handleHighFeesChange(e) {
-    let value = e.target.value;
     this.setState({
-      highfees: value
+      highfees: !this.state.highfees
     });
   }
 
@@ -50,10 +49,10 @@ class SendRawTransaction extends Component {
                   <label>Allow High Fees*</label>
                   <div>
                     <label>
-                      <input onChange={this.handleHighFeesChange.bind(this)} id="highfeetrue"  type="radio" name="highfee" value="true"/> true
+                      <input onChange={this.handleHighFeesChange.bind(this)} id="highfeetrue"  type="radio" name="highfee" value="true" checked={this.state.highfees}/> true
                     </label>
                     <label>
-                      <input onChange={this.handleHighFeesChange.bind(this)} type="radio" name="highfee" id="highfeefalse" value="false" checked=""/> false
+                      <input onChange={this.handleHighFeesChange.bind(this)} type="radio" name="highfee" id="highfeefalse" value="false" checked={this.state.highfees}/> false
                     </label>
                   </div>
               </div>
