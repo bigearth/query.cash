@@ -48,15 +48,15 @@ class CreateRawTransaction extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <div>
+              <div className='pure-control-group'>
                 <label>Inputs</label>
                 <input onChange={this.handleInputsChange.bind(this)} id="inputs" type="text" placeholder="inputs"/>
               </div>
-              <div>
+              <div className='pure-control-group'>
                 <label>Outputs</label>
                 <input onChange={this.handleOutputsChange.bind(this)} id="outputs" type="text" placeholder="outputs"/>
               </div>
-              <div>
+              <div className='pure-control-group'>
                 <label>Locktime</label>
                 <input onChange={this.handleLocktimeChange.bind(this)} id="locktime" type="text" placeholder="locktime"/>
               </div>

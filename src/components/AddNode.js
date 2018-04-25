@@ -41,11 +41,11 @@ class AddNode extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <div>
+              <div className='pure-control-group'>
                 <label>Node</label>
                 <input onChange={this.handleNodeChange.bind(this)} id="node" type="text" placeholder="node"/>
               </div>
-              <div>
+              <div className='pure-control-group'>
                 <label>Command</label>
                 <input onChange={this.handleCommandChange.bind(this)} id="command" type="text" placeholder="command"/>
               </div>

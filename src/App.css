@@ -35,7 +35,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.pure-form-aligned .pure-control-group label {
-  width: inherit;
-}
