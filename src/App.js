@@ -362,7 +362,7 @@ class App extends Component {
                     <NavLink
                       activeClassName="pure-menu-selected"
                       className="pure-menu-heading"
-                      to="/">
+                      to="https://www.bitbox.earth">
 
                       <img src={logo} /> <br />BITBOX
                     </NavLink>
