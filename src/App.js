@@ -358,13 +358,12 @@ class App extends Component {
                 </a>
                 <div id="menu">
                   <div className="pure-menu">
-                    <NavLink
-                      activeClassName="pure-menu-selected"
+                    <a
                       className="pure-menu-heading"
-                      to="https://www.bitbox.earth">
+                      href="https://www.bitbox.earth">
 
                       <img src='./logo.png' /> <br />BITBOX
-                    </NavLink>
+                    </a>
                     <ul className="pure-menu-list">
                       <li className="pure-menu-item">
                         <NavLink
