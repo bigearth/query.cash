@@ -7,6 +7,7 @@ import {
   Redirect,
   NavLink
 } from 'react-router-dom';
+import logo from './logo.png';
 
 import Homepage from './Homepage';
 import AddNode from './components/AddNode';
@@ -356,14 +357,14 @@ class App extends Component {
                 <a href="#menu" id="menuLink" onClick={this.handleClick.bind(this)} className={`menu-link`}>
                   <span></span>
                 </a>
-
                 <div id="menu">
                   <div className="pure-menu">
                     <NavLink
                       activeClassName="pure-menu-selected"
                       className="pure-menu-heading"
                       to="/">
-                      BITBOX
+
+                      <img src={logo} /> <br />BITBOX
                     </NavLink>
                     <ul className="pure-menu-list">
                       <li className="pure-menu-item">
