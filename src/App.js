@@ -364,7 +364,7 @@ class App extends Component {
                       className="pure-menu-heading"
                       to="https://www.bitbox.earth">
 
-                      <img src={logo.png} /> <br />BITBOX
+                      <img src={logo} /> <br />BITBOX
                     </NavLink>
                     <ul className="pure-menu-list">
                       <li className="pure-menu-item">
