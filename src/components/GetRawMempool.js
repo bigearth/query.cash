@@ -12,10 +12,9 @@ class GetRawMempool extends Component {
     };
   }
 
-  handleInputChange(e) {
-    let value = e.target.value;
+  handleVerboseChange(e){
     this.setState({
-      verbose: value
+      verbose: !this.state.verbose
     });
   }
 
@@ -35,8 +34,11 @@ class GetRawMempool extends Component {
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <div className="pure-control-group">
-              <label>Verbose</label>
-              <input onChange={this.handleInputChange.bind(this)} id="name" type="text" placeholder="Verbose"/>
+              <div>
+                <label>Verbose</label>
+                <input onChange={this.handleVerboseChange.bind(this)} id="verbose"  type="radio" name="verbose" value="true" checked={this.state.verbose} /> true
+                <input onChange={this.handleVerboseChange.bind(this)} id="verbose" type="radio" name="verbose" value="false" checked={!this.state.verbose}/> false
+              </div>
             </div>
             <div className="pure-controls">
               <button type="submit" className="pure-button pure-button-primary">Submit</button>
