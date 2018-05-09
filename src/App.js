@@ -7,14 +7,12 @@ import {
   Redirect,
   NavLink
 } from 'react-router-dom';
+import logo from './logo.png';
 
 import Homepage from './Homepage';
 import AddNode from './components/AddNode';
-import CreateRawTransaction from './components/CreateRawTransaction';
 import DecodeRawTransaction from './components/DecodeRawTransaction';
 import DecodeScript from './components/DecodeScript';
-import EstimateFee from './components/EstimateFee';
-import EstimatePriority from './components/EstimatePriority';
 import GetAddedNodeInfo from './components/GetAddedNodeInfo';
 import GetBestBlockHash from './components/GetBestBlockHash';
 import GetBlock from './components/GetBlock';
@@ -36,9 +34,7 @@ import GetRawMempool from './components/GetRawMempool';
 import GetRawTransaction from './components/GetRawTransaction';
 import GetTxOut from './components/GetTxOut';
 import GetTxOutProof from './components/GetTxOutProof';
-import PrioritiseTransaction from './components/PrioritiseTransaction';
 import SendRawTransaction from './components/SendRawTransaction';
-import SignRawTransaction from './components/SignRawTransaction';
 import SubmitBlock from './components/SubmitBlock';
 import ValidateAddress from './components/ValidateAddress';
 import VerifyTxOutProof from './components/VerifyTxOutProof';
@@ -51,11 +47,7 @@ class App extends Component {
     let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
     let BITBOX = new BITBOXCli({
       protocol: 'https',
-      host: '138.68.54.100',
-      port: 8332,
-      username: 'bitcoin',
-      password: 'xhFjluMJMyOXcYvF',
-      corsproxy: true
+      host: 'rest.bitbox.earth'
     });
 
     super(props);
@@ -86,14 +78,6 @@ class App extends Component {
       );
     };
 
-    const CreateRawTransactionPage = (props) => {
-      return (
-        <CreateRawTransaction
-          bitbox={this.state.BITBOX}
-        />
-      );
-    };
-
     const DecodeRawTransactionPage = (props) => {
       return (
         <DecodeRawTransaction
@@ -105,22 +89,6 @@ class App extends Component {
     const DecodeScriptPage = (props) => {
       return (
         <DecodeScript
-          bitbox={this.state.BITBOX}
-        />
-      );
-    };
-
-    const EstimateFeePage = (props) => {
-      return (
-        <EstimateFee
-          bitbox={this.state.BITBOX}
-        />
-      );
-    };
-
-    const EstimatePriorityPage = (props) => {
-      return (
-        <EstimatePriority
           bitbox={this.state.BITBOX}
         />
       );
@@ -294,25 +262,9 @@ class App extends Component {
       );
     };
 
-    const PrioritiseTransactionPage = (props) => {
-      return (
-        <PrioritiseTransaction
-          bitbox={this.state.BITBOX}
-        />
-      );
-    };
-
     const SendRawTransactionPage = (props) => {
       return (
         <SendRawTransaction
-          bitbox={this.state.BITBOX}
-        />
-      );
-    };
-
-    const SignRawTransactionPage = (props) => {
-      return (
-        <SignRawTransaction
           bitbox={this.state.BITBOX}
         />
       );
@@ -377,14 +329,6 @@ class App extends Component {
                         <NavLink
                           activeClassName="pure-menu-selected"
                           className="pure-menu-link"
-                          to="/createrawtransaction">
-                          CreateRawTransaction
-                        </NavLink>
-                      </li>
-                      <li className="pure-menu-item">
-                        <NavLink
-                          activeClassName="pure-menu-selected"
-                          className="pure-menu-link"
                           to="/decoderawtransaction">
                           DecodeRawTransaction
                         </NavLink>
@@ -395,22 +339,6 @@ class App extends Component {
                           className="pure-menu-link"
                           to="/decodescript">
                           DecodeScript
-                        </NavLink>
-                      </li>
-                      <li className="pure-menu-item">
-                        <NavLink
-                          activeClassName="pure-menu-selected"
-                          className="pure-menu-link"
-                          to="/estimatefee">
-                          EstimateFee
-                        </NavLink>
-                      </li>
-                      <li className="pure-menu-item">
-                        <NavLink
-                          activeClassName="pure-menu-selected"
-                          className="pure-menu-link"
-                          to="/estimatepriority">
-                          EstimatePriority
                         </NavLink>
                       </li>
                       <li className="pure-menu-item">
@@ -585,24 +513,8 @@ class App extends Component {
                         <NavLink
                           activeClassName="pure-menu-selected"
                           className="pure-menu-link"
-                          to="/PrioritiseTransaction">
-                          PrioritiseTransaction
-                        </NavLink>
-                      </li>
-                      <li className="pure-menu-item">
-                        <NavLink
-                          activeClassName="pure-menu-selected"
-                          className="pure-menu-link"
                           to="/sendrawtransaction">
                           SendRawTransaction
-                        </NavLink>
-                      </li>
-                      <li className="pure-menu-item">
-                        <NavLink
-                          activeClassName="pure-menu-selected"
-                          className="pure-menu-link"
-                          to="/signrawtransaction">
-                          SignRawTransaction
                         </NavLink>
                       </li>
                       <li className="pure-menu-item">
@@ -635,11 +547,8 @@ class App extends Component {
 
                 <Switch>
                   <Route path="/addnode" component={AddNodePage}/>
-                  <Route path="/createrawtransaction" component={CreateRawTransactionPage}/>
                   <Route path="/decoderawtransaction" component={DecodeRawTransactionPage}/>
                   <Route path="/decodescript" component={DecodeScriptPage}/>
-                  <Route path="/estimatefee" component={EstimateFeePage}/>
-                  <Route path="/estimatepriority" component={EstimatePriorityPage}/>
                   <Route path="/getaddednodeinfo" component={GetAddedNodeInfoPage}/>
                   <Route path="/getbestblockhash" component={GetBestBlockHashPage}/>
                   <Route path="/getblock" component={GetBlockPage}/>
@@ -661,9 +570,7 @@ class App extends Component {
                   <Route path="/getrawtransaction" component={GetRawTransactionPage}/>
                   <Route path="/gettxout" component={GetTxOutPage}/>
                   <Route path="/gettxoutproof" component={GetTxOutProofPage}/>
-                  <Route path="/prioritisetransaction" component={PrioritiseTransactionPage}/>
                   <Route path="/sendrawtransaction" component={SendRawTransactionPage}/>
-                  <Route path="/signrawtransaction" component={SignRawTransactionPage}/>
                   <Route path="/submitblock" component={SubmitBlockPage}/>
                   <Route path="/validateaddress" component={ValidateAddressPage}/>
                   <Route path="/verifytxoutproof" component={VerifyTxOutProofPage}/>
